@@ -1,0 +1,29 @@
+<view class="container">
+    <view class="question">
+        <view class="question-title">{{detail.question}}</view>
+        <view class="question-date">提问于{{detail.createdAt}}</view>
+    </view>
+    <view class="answer-title">共 ({{total}}) 条回答</view>
+    <view class="replys">
+        <view class="reply" wx:for="{{list}}">
+            <view class="reply-top">
+                <image src="{{item.user.avatar}}"></image>
+                <view class="reply-name">{{item.user.nickname}}</view>
+            </view>
+            <view class="reply-text">
+                <text>{{item.answer}}</text>
+            </view>
+            <view class="reply-dianzan" bindtap="clickDianzan" data-index="{{index}}">
+                <view class="reply-date">{{item.createdAt}}</view>
+                <view style='display:flex;justify-content:space-between'>
+                    <image src="/imgs/dianzan.png"></image>
+                    <view>{{item.like}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom">
+        <input class="reply-input" placeholder="只有购买过该商品的用户才能够回复" bindinput="answerInput" value='{{answer}}'></input>
+        <view class='submit' bindtap="addAnswer">提交</view>
+    </view>
+</view>

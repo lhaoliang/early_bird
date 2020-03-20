@@ -1,0 +1,38 @@
+<!-- 规格弹窗 -->
+<view class="spec-modal" catchtap="closeModal">
+    <form report-submit="{{true}}" bindsubmit="getFormId">
+        <view class="spec-body" catchtap="stop">
+            <view class="close-btn" catchtap="closeModal">×</view>
+            <view class="spec-top">
+                <image src="{{imgSrc+(currentSpec.image||defaultImage)}}"></image>
+                <view>
+                    <view class="price">
+                        <text>￥</text>{{currentSpec.price||defaultPrice}}
+                    </view>
+                    <view class="spec">已选：{{specNames}}</view>
+                    <view class="stock">库存：{{currentSpec.stock}}</view>
+                </view>
+            </view>
+            <view class="spec-scroll">
+                <view wx:for="{{specGroups}}" wx:key="{{item.id}}" wx:for-index="i">
+                    <view class="title">{{item.specificationTitle}}</view>
+                    <view class="spec-list">
+                        <view class="spec-item {{item.chooseIndex==index?'active':''}}" wx:for="{{item.specificationNames}}" wx:for-item="spec" wx:key="{{index}}" bindtap="chooseSpec" data-title-index="{{i}}" data-spec-index="{{index}}">
+                            {{spec}}
+                        </view>
+                    </view>
+                </view>
+                <view class="title">数量</view>
+                <view class="count-box">
+                    <image src="/imgs/minus.png" style="width:30rpx;height:6rpx;padding:20rpx 10rpx" bindtap="clickCount" data-num="{{-1}}"></image>
+                    <view class="count">{{num}}</view>
+                    <image src="/imgs/plus.png" style="width:30rpx;height:30rpx;padding:10rpx 10rpx" bindtap="clickCount" data-num="{{1}}"></image>
+                    <view class="limit">每人限购{{numPerUser}}件</view>
+                </view>
+            </view>
+            <view class="spec-bottom">
+                <button class="btn-primary" form-type="submit" bindtap="clickBuy">立即购买</button>
+            </view>
+        </view>
+    </form>
+</view>

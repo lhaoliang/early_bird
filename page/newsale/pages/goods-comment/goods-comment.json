@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "goods-comment": "/components/goods-comment/goods-comment"
+  },
+  "navigationBarTitleText": "全部评价",
+  "enablePullDownRefresh": true
+}

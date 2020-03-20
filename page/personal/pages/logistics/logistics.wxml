@@ -1,0 +1,32 @@
+<view class="container">
+    <view class="logistics-top" wx:if="{{orderPath.count > 0}}">
+        <view class="top-left">
+            <view class="left-item">物流状态：</view>
+            <view class="left-item">物流公司：</view>
+            <view class="left-item">订单号：</view>
+        </view>
+        <view class="top-right">
+            <view class="right-item green">{{orderPath.status == 1 ? '已签收' : '运输中'}}</view>
+            <view class="right-item">{{orderPath.order.logisticsCompany}}</view>
+            <view class="right-item">{{orderPath.order.sn}}</view>
+        </view>
+    </view>
+    <view class="logistics-content" wx:if="{{orderPath.count > 0}}">
+        <view class="content-item" wx:for="{{orderPath.routes}}">
+            <view class="content-i-top">
+                <view class="i-top-left">
+                    <view class="i-top-left-time text-bold" wx:if="{{index == 0}}">{{item.time}}</view>
+                    <view class="i-top-left-time" wx:else>{{item.time}}</view>
+                    <view class="i-top-left-date">{{item.date}}</view>
+                </view>
+                <view class="i-top-right text-bold" wx:if="{{index == 0}}">{{item.remark}}</view>
+                <view class="i-top-right" wx:else>{{item.remark}}</view>
+            </view>
+
+        </view>
+    </view>
+    <view class="no-order" wx:if="{{orderPath.count <= 0}}">
+        <image src="{{imgSrc+'xcx_images/'+'no-message.png'}}"></image>
+        <view class="no-order-title">暂无物流消息</view>
+    </view>
+</view>

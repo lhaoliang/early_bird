@@ -1,0 +1,53 @@
+<!--pages/questionnaire-survey/questionnaire-survey.wxml-->
+<wxs src="../../resources/filter.wxs" module="filter" />
+
+<view class='newbox'>
+    <view class='box-in'>
+        <view class='box_top'>
+            <view class='title'>
+                <image src='/imgs/mone.png'></image>
+                开始答题
+                <image src='/imgs/mone.png'></image>
+            </view>
+            <view class='requitnum'>此次问题共10题，完成后可获得50成长值！</view>
+        </view>
+        <view class='box-list'>
+            <view class='topicbox' wx:for="{{list}}" wx:key="index">
+                <!-- 单选 题目-->
+                <view class='question-title' wx:if="{{item.type==1}}">{{index+1}}.{{item.title}}</view>
+                <!-- 多选题目 -->
+                <view class='question-title' wx:if="{{item.type==2}}">{{index+1}}.{{item.title}}</view>
+                <!-- 单选答案 -->
+                <view class='answer-box' wx:if="{{item.type==1}}">
+                    <view class='answer-item' wx:for="{{item.option}}" wx:for-item="answer" wx:for-index="key" data-index="{{index}}" bindtap='clickanswer' data-key='{{answer.id}}'> 
+                        <view class="radius-box {{item.atanswer==answer.id?'radius-color':''}}">
+                            <view class='radius-box-in'></view>
+                        </view>
+                        <view class='answer-conter'>{{answer.content}}</view>
+                    </view>
+                </view>
+                <!-- 多选答案 -->
+                <view class='answer-box' wx:if="{{item.type==2}}">
+                    <view class='answer-item' wx:for="{{item.option}}" wx:for-item="answer" wx:for-index="key" data-index="{{index}}" bindtap='chooseMoreAnswer' data-key='{{answer.id}}'>
+                       <view class="{{filter.indexOf(item.atanswer,answer.id)>-1?'radius-box radius-color':'radius-box'}}">
+                            <view class='radius-box-in'></view>
+                        </view>
+                        <view class='answer-conter'>{{answer.content}}</view>
+                    </view>
+                </view>
+            </view>
+
+
+        </view>
+        <view class='sbumitbtn' bindtap='sbumitbtn'>提交</view>
+    </view>
+
+</view>
+<view class='tow-box' wx:if="{{subBox}}">
+    <view class='accomplish'>
+        <image src='/imgs/monetwo.png' style='width:244rpx;height:244rpx'></image>
+    </view>
+    <view class='subtext'>提交成功</view>
+    <view class='subtext-two'>感谢您的宝贵时间</view>
+    <view class='accomplish-btn' bindtap='accomplish'>完成</view>
+</view>

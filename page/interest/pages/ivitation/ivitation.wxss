@@ -1,0 +1,65 @@
+/* pages/money-rule/money-rule.wxss */
+.canvas {
+    width: 90vw;
+    height: calc(90vw*1.7);
+    margin: 5vw auto;
+}
+
+.container {
+    width: 100vw;
+    background-color: #fff;
+}
+
+.container>image {
+    width: 80vw;
+    height: 80vh;
+    display: block;
+    margin: 0 auto 60rpx;
+}
+
+.choose-share-body {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 2px 50rpx 0 rgba(0, 0, 0, 0.3);
+    height: 125rpx;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    bottom: 0;
+    width: 100vw;
+}
+
+.choose-share-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    background-color: transparent;
+}
+
+.choose-share-btn>image {
+    width: 54rpx;
+    height: 54rpx;
+}
+
+.choose-share-btn>view {
+    color: #323333;
+    font-size: 26rpx;
+    line-height: 1.65;
+}
+.info{
+    position:absolute;
+    left:75rpx;
+    top:50rpx;
+    z-index:22;
+    color:#fff;
+    font-size: 24rpx;
+    padding: 20rpx 32rpx;
+    border-top-right-radius: 50rpx;
+    border-bottom-right-radius: 50rpx;
+    background-color: rgba(0, 0, 0, 0.1)
+}
+.share-image{
+    width: 360rpx;
+    box-shadow: 0 0 20rpx 0 #eee;
+}

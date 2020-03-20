@@ -1,0 +1,29 @@
+/* pages/advice/advice.wxss */
+.bg{
+    background-color: #F2F7F7;
+}
+.advice{
+    padding:50rpx 36rpx 0;
+}
+.content{
+    padding: 40rpx;
+    background-color: #fff;
+    width: 100%;
+    min-height: 600rpx;
+    box-sizing: border-box;
+    font-size: 24rpx;
+    color: #323333;
+}
+.submit{
+    width: 91%;
+    height: 100rpx;
+    font-size: 32rpx;
+    color: #fff;
+    background-color: #1BC4C4;
+    position: fixed;
+    bottom: 140rpx;
+    line-height: 100rpx;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 3rpx;
+}

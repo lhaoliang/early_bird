@@ -1,0 +1,41 @@
+<!--pages/sub-fail/sub-fail.wxml-->
+<form report-submit="{{true}}" bindsubmit="getFormId">
+<view class='fail-tip'>
+    <image src="{{imgSrc+'xcx_images/'+'sub-bg.png'}}"></image>
+    <view class='fail-info'>
+        <view class='left'><image src='../../imgs/refund-fail.png'></image></view>
+        <view class='right'>
+            <view class='right-text'>预约失败 <image src="{{imgSrc+'xcx_images/'+'tip.png'}}"></image> </view> 
+            <view class='right-info'>因未在规定时间内支付尾款</view>
+        </view>
+    </view>
+</view>
+<view class='good'>
+    <goods-info type="{{2}}" goodsInfo="{{orderInfo}}"></goods-info>
+</view> 
+<view class="goods-options">
+    <view class="goods-option">
+        <view class="option-key">发售价格</view>
+        <view class="option-value">¥{{orderInfo.goodsUnitPrice}}</view>
+    </view>
+    <view class="goods-option">
+        <view class="option-key">已付定金</view>
+        <view class="option-value">¥{{orderInfo.payPrice}}</view>
+    </view>
+    <view class="goods-option">
+        <view class="option-key">尾款</view>
+        <view class="option-value">¥9699.98</view>
+    </view>
+    <view class="goods-option option-col">
+        <view>订金可抵扣</view>
+        <view>¥{{orderInfo.tailDiscount}}</view>
+    </view>
+</view>
+<view class="bottom-area">
+    <button class="form-btn support-btn"  open-type="contact" form-type="submit">
+        <image src="/imgs/support-active.png"></image>
+        <view>客服</view>
+    </button>
+    <button class="btn-primary btn-col" form-type="submit">已超时</button>
+</view>
+  </form>

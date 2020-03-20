@@ -1,0 +1,55 @@
+/* pages/record/record.wxss */
+.orders {
+}
+
+.order {
+    padding: 58rpx 36rpx 38rpx 36rpx;
+    border-bottom: 10rpx solid #f0f5f5;
+}
+.order-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22rpx;
+    margin-bottom: 30rpx;
+}
+
+.order-time {
+    color: #969999;
+}
+
+.order-status {
+    color: #ee4d5d;
+}
+
+.order-status.primary {
+    color: #1cbdc5;
+}
+
+.order-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 34rpx;
+}
+
+.order-price {
+    font-size: 20rpx;
+    color: #323333;
+    font-weight: bold;
+}
+
+.order-price>text {
+    font-size: 28rpx;
+    margin-right: 2rpx;
+}
+.record-success{
+    font-size: 26rpx;
+    color: #EE4D5D;
+    text-align: center;
+    width: 134rpx;
+    height: 44rpx;
+    border: 1px solid #EE4D5D;
+    line-height: 42rpx;
+    border-radius: 10rpx;
+}

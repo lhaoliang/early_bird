@@ -1,0 +1,8 @@
+<!--pages/exchange-success/exchange-success.wxml-->
+<view class='main'>
+    <image src="{{imgSrc+'xcx_images/'+'exchange.png'}}"/>
+    <view class='title'>恭喜你，兑换成功！</view>
+    <view class='text'>去兌奖池看看吧～</view>
+    <button class='btn' wx:if="{{type==1||type==3}}" style='background:#fff;border-radius:5rpx' open-type="contact" form-type="submit">联系客服</button>
+    <view class='btn' wx:else bindtap='toRecord'>去看看</view>
+</view>

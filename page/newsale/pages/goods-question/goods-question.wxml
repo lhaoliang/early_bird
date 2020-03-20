@@ -1,0 +1,27 @@
+<view class="container">
+    <view>
+        <view class="item" wx:for="{{list}}">
+            <view class="question">
+                <view class="question-title">{{item.question}}</view>
+            </view>
+            <view class="answer">
+                <view class="answer-label">回答</view>
+                <view class="answer-text">{{item.answers[0].answer || '暂无回答'}}</view>
+            </view>
+            <view class="item-bottom">
+                <view class="comment-reply" bindtap="toQuestionDetail" data-item="{{item}}">
+
+                    <view class="question-date">提问于{{item.createdAt}}</view>
+                    <view style='display:flex;justify-content:space-between;'>
+                        <view>共 ({{item.answerNum}}) 条回答</view>
+                        <image src="/imgs/right.svg"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom">
+        <input class="reply-input" placeholder="向购买的人提问" bindinput="questionInput" value='{{question}}'></input>
+        <view class='submit' bindtap="addQuestion">提交</view>
+    </view>
+</view>

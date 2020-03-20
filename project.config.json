@@ -1,0 +1,433 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.97",
+	"appid": "wx1928b2695ef086df",
+	"projectname": "%E6%97%A9%E9%B8%9F%E9%A6%96%E5%8F%91-%E5%88%86%E5%8C%85",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 55,
+			"list": [
+				{
+					"id": -1,
+					"name": "授权登录",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "地址管理",
+					"pathName": "pages/my-address/my-address",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加地址",
+					"pathName": "pages/add-address/add-address",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品详情",
+					"pathName": "pages/goods-detail/goods-detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "确认信息",
+					"pathName": "pages/confirm-order/confirm-order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/my-orders/my-orders",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/order-detail/order-detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "退款详情",
+					"pathName": "pages/refund-detail/refund-detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的售后",
+					"pathName": "pages/my-refund/my-refund",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商品评价",
+					"pathName": "pages/goods-comment/goods-comment",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "评价详情",
+					"pathName": "pages/goods-comment-detail/goods-comment-detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提问",
+					"pathName": "pages/goods-question/goods-question",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "提问详情",
+					"pathName": "pages/goods-question-detail/goods-question-detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "下单",
+					"pathName": "pages/confirm-order/confirm-order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "更新",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预售详情",
+					"pathName": "pages/presale-detail/presale-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预付订金",
+					"pathName": "pages/pay/pay",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的预约",
+					"pathName": "pages/my-sub/my-sub",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预约失败",
+					"pathName": "pages/sub-fail/sub-fail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预约规则",
+					"pathName": "pages/money-rule/money-rule",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付尾款",
+					"pathName": "pages/pay-end/pay-end",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "申请退款",
+					"pathName": "pages/apply-refund/apply-refund",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "讨论区",
+					"pathName": "pages/discuss/discuss",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "讨论详情",
+					"pathName": "pages/discuss-detail/discuss-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付成功",
+					"pathName": "pages/pay-success/pay-success",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "预约订单详情",
+					"pathName": "pages/sub-detail/sub-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的消息",
+					"pathName": "pages/message/message",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "试用详情",
+					"pathName": "pages/trial-detail/trial-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "试用规则",
+					"pathName": "pages/trial-rule/trial-rule",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的试用",
+					"pathName": "pages/my-trial/my-trial",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "检测报告",
+					"pathName": "pages/report/report",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "兑换记录列表",
+					"pathName": "pages/record/record",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "确认兑换",
+					"pathName": "pages/exchange/exchange",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "兑换成功",
+					"pathName": "pages/exchange-success/exchange-success",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "意见反馈",
+					"pathName": "pages/advice/advice",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 36,
+					"name": "兑换详情",
+					"pathName": "page/interest/pages/exchange-detail/exchange-detail",
+					"query": "id=21",
+					"scene": null
+				},
+				{
+					"id": 37,
+					"name": "会员权益",
+					"pathName": "pages/interest/interest",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "兑换奖品",
+					"pathName": "pages/change-gifts/change-gifts",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "1",
+					"pathName": "pages/change-rule/change-rule",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "邀请好友",
+					"pathName": "pages/ivitation/ivitation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 41,
+					"name": "首页",
+					"pathName": "page/tabBar/home/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "邀请",
+					"pathName": "page/interest/pages/ivitation/ivitation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "邀请",
+					"pathName": "page/interest/pages/ivitation/ivitation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 44,
+					"name": "首页",
+					"pathName": "page/tabBar/home/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会员权益",
+					"pathName": "page/tabBar/interest/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 46,
+					"name": "11",
+					"pathName": "page/newsale/pages/confirm-order/confirm-order",
+					"query": "activityId=83&goodsInfo=[{%22goods_spec_id%22:275,%22purchase_num%22:1}]",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "11",
+					"pathName": "page/interest/pages/confirm-viporder/confirm-viporder",
+					"query": "memberId=14&goodsSpecId=46&purchaseNum=1",
+					"scene": null
+				},
+				{
+					"id": 48,
+					"name": "确认订单",
+					"pathName": "page/newsale/pages/confirm-order/confirm-order",
+					"query": "activityId=83&goodsInfo=[{\"goods_spec_id\":274,\"purchase_num\":1}]",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "兑换",
+					"pathName": "page/interest/pages/change-gifts/change-gifts",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "兑换奖品",
+					"pathName": "page/interest/pages/change-gifts/change-gifts",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 51,
+					"name": "42",
+					"pathName": "page/interest/pages/coupon-goods-detail/coupon-goods-detail",
+					"query": "id=42&type=4",
+					"scene": null
+				},
+				{
+					"id": 52,
+					"name": "42",
+					"pathName": "page/trial/pages/trial-detail/trial-detail",
+					"query": "id=1&goodId=1",
+					"scene": null
+				},
+				{
+					"id": 53,
+					"name": "1111",
+					"pathName": "page/newsale/pages/goods-detail/goods-detail",
+					"query": "id=3&goodsId=3",
+					"scene": null
+				},
+				{
+					"id": 54,
+					"name": "22",
+					"pathName": "page/interest/pages/goodsvip-detail/goodsvip-detail",
+					"query": "memberId=3&goodsId=3",
+					"scene": null
+				},
+				{
+					"id": 55,
+					"name": "退款详情",
+					"pathName": "page/personal/pages/logistics/logistics",
+					"query": "orderId='1294'",
+					"scene": null
+				}
+			]
+		}
+	}
+}

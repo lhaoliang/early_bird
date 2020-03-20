@@ -1,0 +1,85 @@
+<view class="container">
+    <form report-submit="{{true}}" bindsubmit="getFormId">
+        <view class='person-info' wx:if="{{address.id}}">
+            <image src="{{imgSrc+'xcx_images/'+'pay-end.png'}}"></image>
+            <view class='inner' bindtap="toAddress">
+                <view class='person'>
+                    <view style='font-weight:bold'>{{address.realName}}</view>
+                    <view>{{address.phone}}</view>
+                </view>
+                <view class='address'>
+                    <view class='add-info'>
+                        <image src='/imgs/address-white.png'></image>{{address.province}}{{address.city}}{{address.district}}{{address.detail}}
+                    </view>
+                    <view class='icon-right'>
+                        <image src="/imgs/right-white.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- <view class="address-select" wx:if="{{address.id}}" bindtap="toAddress">
+        <view class="address-info">
+            <view class="address-name">{{address.realName}}</view>
+            <view class="address-mobile">{{address.phone}}</view>
+        </view>
+        <view class="address-text">
+            <image src="/imgs/address.png"></image>
+            <view>{{address.province}}{{address.city}}{{address.district}}{{address.detail}}</view>
+        </view>
+    </view> -->
+        <view class="address-car" wx:else bindtap="toAddress">
+            <view>请添加您的第一个地址</view>
+            <image src="/imgs/car.png"></image>
+        </view>
+        <view class="goods-info">
+            <view class="goods-title">商品详情</view>
+            <goods-info goodsInfo="{{orderDetail.order}}"></goods-info>
+        </view>
+        <view class="goods-options">
+            <view class="goods-option">
+                <view class="option-key">商品总价</view>
+                <view class="option-value"><text>￥</text>{{orderDetail.order.goodsPrice}}</view>
+            </view>
+            <view class="goods-option">
+                <view class="option-key">配送方式</view>
+                <view class="option-value">快递配送</view>
+            </view>
+            <view class="goods-option">
+                <view class="option-key">运费</view>
+                <view class="option-value"><text>￥</text>{{orderDetail.order.deliverFee}}</view>
+            </view>
+        </view>
+        <view class="goods-options" bindtap="showCoupon">
+            <view class="goods-option">
+                <view class="option-key">优惠券</view>
+                <view class="coupon">
+                    <text style='margin-left:350rpx;' wx:if="{{count==0}}">暂无可用优惠券</text>
+                    <view class="coupon-danger" wx:if="{{count!=0&&chooseType == 1}}">
+                        <text wx:if="{{couponType!=3}}">{{couponFaceValue}}元{{couponsDescriptions}}</text>
+                        <text wx:if="{{couponType==3}}">{{discount/10}}折折扣券</text>   
+                    </view>
+                    <text style='margin-left:350rpx;' wx:if="{{count!=0&&chooseType == 2}}">{{couponsDescriptions}}</text>
+                    <view class="coupon-danger" wx:if="{{count>0&&chooseType == 0}}">
+                        <text wx:if="{{couponList[0].coupon.couponType==1}}">{{couponList[0].coupon.couponFaceValue}}无门槛券</text>
+                        <text wx:if="{{couponList[0].coupon.couponType==2}}">{{couponList[0].coupon.couponFaceValue}}满减券</text>
+                        <text wx:if="{{couponList[0].coupon.couponType==3}}">{{(couponList[0].coupon.discount)/10}}折折扣券</text>
+                    </view>
+                </view>
+                <view class="option-value">
+                    <image src="/imgs/right.svg"></image>
+                </view>
+            </view>
+        </view>
+        <view class="total-price">
+            共合计：
+            <text wx:if="{{count==0||chooseType==2}}">{{(orderDetail.order.payPrice)>0?(orderDetail.order.payPrice):0.01}}元</text>
+
+            <text wx:if="{{(couponType==1||couponType==2)&&chooseType==1}}">{{((orderDetail.order.payPrice)-couponFaceValue)>0?((orderDetail.order.payPrice)-couponFaceValue):0.01}}元</text>
+            <text wx:if="{{(couponList[0].coupon.couponType==1||couponList[0].coupon.couponType==2)&&couponsDescriptions.length==0&&flag}}">{{goodsMoney3>0?goodsMoney3:0.01}}元</text>
+            <text wx:if="{{couponType==3&&chooseType==1}}">{{(goodsMoney1+deliverFee)>0?(goodsMoney1+deliverFee):0.01}}元</text>
+            <text wx:if="{{couponList[0].coupon.couponType==3&&couponsDescriptions.length==0&&flag}}">{{(goodsMoney2+deliverFee)>0?(goodsMoney2+deliverFee):0.01}}元</text>
+        </view>
+        <button class="btn-primary" disabled='{{!canUse}}' form-type="submit" bindtap="clickPay">去支付</button>
+    </form>
+    <coupon-modal wx:if="{{toCoupon}}" list="{{couponList}}"  choosedCoupon="{{choosedCouponId}}" bindclose="showCoupon" catchtouchmove="myCatchTouch"></coupon-modal>
+</view>

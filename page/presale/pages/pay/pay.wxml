@@ -1,0 +1,22 @@
+<!--pages/pay/pay.wxml-->
+<view class='conner'>
+    <view class='coupon'>
+        <view class='coupon-info'>
+            <view class='cou-title'>支付预约订金</view>
+            <view class='cou-price'>¥ <text style='font-size:30px;'>{{goodsInfo.payPrice}}</text> </view>
+            <view class='cou-discount'>可抵扣{{goodsInfo.tailDiscount}}元</view>
+        </view>
+    </view>
+    <view class="order order-pad">
+        <goods-info goodsInfo="{{goodsInfo}}" type="1"></goods-info>
+    </view>
+</view>
+<view class='line'></view>
+<view class='money-info'>
+    <view class='info-title'>定金说明</view>
+    <view class='info-item'>1.定金支付成功代表首发后能够购买商品</view>
+    <view class='info-item'>2.定金支付后可超额抵扣货价</view>
+    <view class='info-item'>3.在商品发售后72小时内未进行尾款支付，订金将被当做违约金进行扣除</view>
+    <view class='info-item'>4.您在成功支付尾款后，商品出现缺货情况将对您进行等额赔付</view>
+</view>
+<view class='pay-btn' disabled="{{!canUse}}" bindtap='clickPay'>支付订金</view>

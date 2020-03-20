@@ -1,0 +1,154 @@
+/* pages/my-orders/my-orders.wxss */
+
+.container {
+    padding-top: 76rpx;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    padding: 20rpx 20rpx 0 20rpx;
+    border-bottom: 1px solid #f0f5f5;
+    font-weight: 600;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.btn-muted {
+    border-radius: 60rpx;
+    border: solid 2rpx #e1e5e5;
+    font-size: 24rpx;
+    color: #323333;
+    height: 64rpx;
+    line-height: 62rpx;
+    padding: 0 32rpx;
+    background-color: transparent;
+    margin: 0;
+}
+.tab {
+    display: flex;
+    font-size: 26rpx;
+    background-color: transparent;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 16rpx;
+    color: #969999;
+}
+
+.tab>view {
+    margin-top: 10rpx;
+    width: 44rpx;
+    height: 4rpx;
+}
+
+.tab.active {
+    color: #323333;
+    font-size: 28rpx;
+}
+
+.tab.active>view {
+    background-color: #323333;
+}
+
+.orders {
+}
+
+.order {
+    padding: 58rpx 36rpx 38rpx 36rpx;
+    border-bottom: 10rpx solid #f0f5f5;
+}
+
+.order-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22rpx;
+    margin-bottom: 30rpx;
+}
+
+.order-time {
+    color: #969999;
+}
+
+.order-status {
+    color: #ee4d5d;
+}
+
+.order-status.primary {
+    color: #1cbdc5;
+}
+
+.order-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 34rpx;
+}
+
+.order-price {
+    font-size: 28rpx;
+    color: #323333;
+    font-weight: bold;
+}
+
+.order-price>text {
+    font-size: 22rpx;
+    margin-right: 2rpx;
+}
+
+.order-btn-primary {
+    color: #fff;
+    background-color: #1cbdc5;
+    border-radius: 6rpx;
+    text-align: center;
+    height: 64rpx;
+    line-height: 64rpx;
+    width: 220rpx;
+    font-size: 24rpx;
+}
+
+.order-btn-primary:active {
+    background-color: #fff;
+    -webkit-tap-highlight-color: red;
+}
+
+.no-order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+
+.no-order>image {
+    width: 316rpx;
+    height: 238rpx;
+    margin-left: 28rpx;
+}
+
+.no-order-title {
+    font-size: 36rpx;
+    color: #1cbdc5;
+    margin-top: 24rpx;
+}
+
+.no-order-text {
+    color: #c8cccc;
+    font-size: 22rpx;
+    margin-top: 20rpx;
+}
+
+.no-order>button {
+    border-radius: 6rpx;
+    border: solid 2rpx #1cbdc5;
+    width: 320rpx;
+    text-align: center;
+    margin-top: 36rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    color: #1cbdc5;
+    font-size: 28rpx;
+}

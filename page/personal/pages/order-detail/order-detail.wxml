@@ -1,0 +1,179 @@
+<form report-submit="{{true}}" bindsubmit="getFormId">
+  <view class="container">
+    <view class="send-info" wx:if="{{orderPath.count > 0 &&orderDetail.status>=3}}" bindtap="clickToLogistics">
+      <view class="send-left">
+        <view class="send-station">
+          <image src="/imgs/car.png" wx:if="{{orderPath.status == 1}}"></image>
+          <image src="/imgs/qianshou.png" wx:else></image>
+          <view class='logis-detail'>{{orderPath.routes[0]['remark']}}</view>
+          <image style='width:36rpx;height:26rpx;' src='/imgs/right.svg'></image>
+        </view>
+        <view class="send-date">{{orderPath.routes[0]['date']}} {{orderPath.routes[0]['time']}}</view>
+        
+      </view>
+    </view>
+    <view class="address">
+      <view class="address-info">
+        <view class="address-name">{{orderDetail.consignee}}</view>
+        <view class="address-mobile">{{orderDetail.consigneeMobile}}</view>
+      </view>
+      <view class="address-text">
+        <image src="/imgs/address.png"></image>
+        <view class='address-area'>{{orderDetail.province}}{{orderDetail.city}}{{orderDetail.district}}{{orderDetail.receiveAddress}}</view>
+      </view>
+    </view>
+    <view class="goods-info" data-id='{{orderDetail.activityId || orderDetail.memberId}}' data-idx='{{orderDetail.goods[0].goodsId}}' bindtap='toDetail'>
+      <goods-info goodsInfo="{{item}}" wx:for="{{orderDetail.goods}}" wx:key="{{item.id}}"></goods-info>
+    </view>
+    <view class="goods-options">
+      <view class="goods-option">
+        <view class="option-key">订单编号</view>
+        <view class="option-value">{{orderDetail.sn}}</view>
+      </view>
+      <view class="goods-option">
+        <view class="option-key">订单状态</view>
+        <view class="option-value" wx:if="{{orderDetail.status==0&&type==1}}">已关闭</view>
+        <view class="option-value danger" wx:if="{{orderDetail.status==1&&type==1}}">待付款</view>
+        <view class="option-value primary" wx:if="{{orderDetail.status==2&&type==1}}">待发货</view>
+        <view class="option-value primary" wx:if="{{orderDetail.status==3&&type==1}}">待收货</view>
+        <view class="option-value primary" wx:if="{{orderDetail.status==4&&type==1}}">待评价</view>
+        <view class="option-value primary" wx:if="{{orderDetail.status==5&&type==1}}">已完成</view>
+        <view class='option-value dcolor' wx:if="{{orderDetail.refundStatus==1&&type==2}}" bindtap='toRefundDetail' data-id='{{orderDetail.refundId}}'>退款失败</view>
+        <view class="option-value  dcolor" wx:if="{{orderDetail.refundStatus==2&&type==2}}" bindtap='toRefundDetail' data-id='{{orderDetail.refundId}}'>退款中</view>
+        <view class="option-value  dcolor dcolor--color " wx:if="{{orderDetail.refundStatus==3&&type==2}}" bindtap='toRefundDetail' data-id='{{orderDetail.refundId}}'>退款成功</view>
+        <view class='option-value dcolor dcolor--color' wx:if="{{orderDetail.refundStatus==4&&type==2}}" bindtap='toRefundDetail' data-id='{{orderDetail.refundId}}'>退款已撤销</view>
+      </view>
+      <view class="goods-option">
+        <view class="option-key">下单时间</view>
+        <view class="option-value">{{orderDetail.createdAt}}</view>
+      </view>
+    </view>
+    <view class="goods-options">
+      <view class="goods-option">
+        <view class="option-key">商品总价</view>
+        <view class="option-value"><text>￥</text>{{orderDetail.goodsPrice}}</view>
+      </view>
+      <view class="goods-option">
+        <view class="option-key">配送方式</view>
+        <view class="option-value">快递配送</view>
+      </view>
+      <view class="goods-option">
+        <view class="option-key">运费</view>
+        <view class="option-value"><text>￥</text>{{orderDetail.deliverFee}}</view>
+      </view>
+      <view class="goods-option" wx:if="{{!orderDetail.userCouponId}}">
+        <view class="option-key">用户留言：</view>
+        <view class="option-value">{{orderDetail.remark}}</view>
+      </view>
+    </view>
+    <view class='goods-options' wx:if="{{orderDetail.userCouponId&&orderDetail.couponName}}">
+      <view class='goods-option'>
+        <view class="option-key">优惠券</view>
+        <view class="coupon">
+          <view class="coupon-danger">{{orderDetail.couponName}}</view>
+        </view>
+        <!-- <view class="option-value">
+                    <image src="/imgs/right.svg"></image>
+                </view> -->
+      </view>
+    </view>
+    <!-- <view class="goods-options" wx:if="{{orderDetail.status==5||orderDetail.status==6}}">
+            <view class="goods-option">
+                <view class="option-key">退款原因</view>
+                <view class="option-value">拍错商品</view>
+            </view>
+            <view class="goods-option">
+                <view class="option-key">退款编号</view>
+                <view class="option-value">2019828381283183218328</view>
+            </view>
+            <view class="goods-option">
+                <view class="option-key">申请时间</view>
+                <view class="option-value">2019-05-08 22:06:12</view>
+            </view>
+            <view class="goods-option">
+                <view class="option-key">退款金额</view>
+                <view class="option-value">
+                    <text>￥</text>{{orderDetail.payPrice}}</view>
+            </view>
+        </view> -->
+    <!-- <view class="goods-option" wx:if="{{orderDetail.status==6}}">
+            <view class="option-key">实付款</view>
+            <view class="option-value">{{orderDetail.payPrice}}元</view>
+        </view> -->
+    <view class="order-bottom">
+      <view class="order-price">
+        实付款
+        <text>{{orderDetail.payPrice}}元</text>
+      </view>
+      <view class="order-close" wx:if="{{orderDetail.status==1}}">订单自动关闭还剩 {{time}}</view>
+    </view>
+    <view class='refund-fail' wx:if="{{orderDetail.refundStatus==1}}" bindtap='toRefundDetail' data-id='{{orderDetail.refundId}}'>
+      <view class='refund-text'>退款失败</view>
+      <view>
+        <text class='refund-reason'>查看原因</text>
+        <image src="/imgs/right.svg" style="width:30rpx;height:30rpx;opacity:.7;margin-right:-8rpx;vertical-align:middle;"></image>
+      </view>
+    </view>
+    <view class="other-btns" wx:if="{{orderDetail.status==0||orderDetail.status==2||orderDetail.status==3||orderDetail.status==4||orderDetail.status==5}}">
+      <button class="btn-muted" wx:if="{{(orderDetail.status==2||orderDetail.status==3||orderDetail.status==4)&&orderDetail.refundStatus!=1&&orderDetail.refundStatus!=3&&orderDetail.refundStatus!=2}}" bindtap="clickRefund" form-type="submit">
+        申请退款
+      </button>
+      <button class="btn-muted" wx:if="{{orderDetail.status==5 || orderDetail.status==0}}" form-type="submit" data-id='{{orderDetail.id}}' bindtap='deleteOrder'>
+        删除订单
+      </button>
+    </view>
+
+  </view>
+  <view class="bottom-area">
+    <view class="bottom-btns">
+      <button class="support-btn" open-type="contact" form-type="submit">
+        <image src="/imgs/support-active.png"></image>
+        <view>客服</view>
+      </button>
+      <view class="none-place" wx:if="{{orderDetail.status==0||orderDetail.refundStatus==3}}">
+
+      </view>
+      <button class="btn-primary small" wx:if="{{orderDetail.status==1}}" bindtap="clickPay" form-type="submit">
+        去支付
+      </button>
+      <button class="btn-primary small" wx:if="{{orderDetail.status==2&&orderDetail.refundStatus!=2&&orderDetail.refundStatus!=3&&orderDetail.isRemind==0}}" bindtap="clickRemind" disabled='{{flag}}' form-type="submit">
+        {{btnMsg}}
+      </button>
+      <button disabled="{{orderDetail.isRemind==1}}" class="btn-primary small" wx:if="{{orderDetail.status==2&&orderDetail.isRemind==1&&orderDetail.refundStatus!=2&&orderDetail.refundStatus!=3}}" bindtap="clickRemind" form-type="submit">
+        已提醒
+      </button>
+      <button class="btn-primary small" wx:if="{{orderDetail.status==3&&orderDetail.refundStatus==0}}" bindtap="clickToLogistics" form-type="submit">
+        查看物流
+      </button>
+      <button class="btn-primary small" wx:if="{{(orderDetail.status==4&&type==1)||(orderDetail.status==4&&type==2)}}" bindtap="clickComment" form-type="submit">
+        立即评价
+      </button>
+      <button class="btn-primary small" wx:if="{{orderDetail.status==5}}" bindtap='clickBuy' form-type="submit">
+        再次购买
+      </button>
+      <button class="btn-primary small" wx:if="{{orderDetail.refundStatus==2}}" data-id='{{orderDetail.refundId}}' bindtap='cancel' form-type="submit">
+        撤销申请
+      </button>
+      <view class="order-price" wx:if="{{orderDetail.status==6}}">
+        已退款
+        <text>{{orderDetail.payPrice}}元</text>
+      </view>
+    </view>
+  </view>
+  <!-- 这是弹出的申请原因 -->
+  <view class='dialog' wx:if="{{showRefundModal}}">
+    <view class='dialog-title'>
+      <text>退款原因</text>
+      <text class='dialog-close' bindtap="closeRefund">×</text>
+    </view>
+    <view class='dialog-con'>
+      <view class='dialog-item' wx:for="{{refundReasons}}" data-item='{{item}}' bindtap='setChoose' wx:key="{{item.id}}">
+        <view>{{item.content}}</view>
+        <view class='address-radio {{chooseRefundReason.id==item.id?"active":""}}'>
+          <view></view>
+        </view>
+      </view>
+      <button class="btn-primary" form-type="submit" bindtap="confirmRefund">确定退款</button>
+    </view>
+  </view>
+</form>

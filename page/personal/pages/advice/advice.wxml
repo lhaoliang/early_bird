@@ -1,0 +1,8 @@
+<!--pages/advice/advice.wxml-->
+<view class='container bg'>
+    <view class='advice'>
+        <textarea placeholder-style="color:#C8CCCC;line-height:40rpx;letter-spacing:2rpx;" class='content' bindinput="getCom" maxlength="-1" placeholder='聊聊您的看法，欢迎您参与我们的产品建设，您的一句吐槽有可能成为下次产品改版的方向...' value='{{content}}'></textarea>
+        <view class='submit' bindtap='add'>提交</view> 
+    </view>
+</view>
+

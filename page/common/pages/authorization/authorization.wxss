@@ -1,0 +1,30 @@
+.logo {
+    width: 260rpx;
+    height: 260rpx;
+    border-radius: 50%;
+    position: absolute;
+    top: 190rpx;
+    left: 245rpx;
+}
+
+.logo-text {
+    position: absolute;
+    color: #323333;
+    font-size: 32rpx;
+    text-align: center;
+    top: 490rpx;
+    left: 0;
+    width: 100%;
+}
+.btn{
+    background-color: #1cbdc5;
+    width: 678rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    left: 36rpx;
+    position: absolute;
+    bottom: 200rpx;
+    border-radius: 100rpx;
+    color: #fff;
+    font-size: 32rpx;
+}

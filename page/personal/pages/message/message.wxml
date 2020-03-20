@@ -1,0 +1,60 @@
+<view class="container">
+    <form report-submit="{{true}}" bindsubmit="getFormId">
+        <view class="tabs">
+            <view class="tab {{tab==1?'active':''}}" bindtap="chooseTab" data-tab="{{1}}">
+                <text>我的动态</text>
+                <view></view>
+            </view>
+            <view class="tab {{tab==2?'active':''}}" bindtap="chooseTab" data-tab="{{2}}">
+                <text>系统通知</text>
+                <view></view>
+            </view>
+        </view>
+        <view wx:if="{{tab==1}}">
+            <view class="activity" wx:for="{{list}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="toDetial">
+                <view class="activity-top">
+                    <image src="{{item.user.avatar}}"></image>
+                    <view class="activity-name">
+                        {{item.user.nickname}}
+                        <text wx:if="{{item.dynamicType==1}}">回复了您的评论</text>
+                        <text wx:if="{{item.dynamicType==2}}">回答了您的回复</text>
+                        <text wx:if="{{item.dynamicType==4&&item.content=='您的回答有人点赞了'}}">点赞了您的回答</text>
+                        <text wx:if="{{item.dynamicType==4&&item.content=='您的回答有人取消点赞了'}}">取消了点赞您的回答</text>
+                    </view>
+                    <view class="activity-date">{{item.createdAt}}</view>
+                </view>
+                <view class="activity-text">{{item.content}}</view>
+                <!-- 最多14字符，超出用省略号代替 -->
+                <view class="activity-from"  wx:if="{{item.dynamicType==1}}">
+                    来自“{{item.from.comment}}”
+                </view>
+                <view class="activity-from"  wx:if="{{item.dynamicType==2}}">
+                    来自“{{item.from.question}}”
+                </view>
+                <view class="activity-from"  wx:if="{{item.dynamicType==4}}">
+                    来自“{{item.from.answer}}”
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{tab==2}}">
+            <view class="system" wx:for="{{list}}" wx:key="{{item.id}}" data-item="{{item}}" bindtap="toOrderDetail">
+                <view class="system-top">
+                    <view class="system-name">{{item.title}}</view>
+                    <view wx:if="{{!item.isread}}" class="new-message"></view>
+                    <view class="system-date">{{item.createdAt}}</view>
+                </view>
+                <!-- 最多8字符，超出用省略号代替 -->
+                <view class="system-bottom">
+                    <view class="system-text">{{item.notice}}</view>
+                    <image src="/imgs/right.svg"></image>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{list.length==0}}" class="no-order">
+            <image src="{{imgSrc+'xcx_images/'+'no-message.png'}}"></image>
+            <view class="no-order-title">暂无消息</view>
+            <view class="no-order-text">去首页看看吧~</view>
+            <button bindtap="toHome" form-type="submit">逛逛首页</button>
+        </view>
+    </form>
+</view>

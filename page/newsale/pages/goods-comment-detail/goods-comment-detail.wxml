@@ -1,0 +1,21 @@
+<view class="container">
+    <view class="comment">
+        <goods-comment data="{{detail}}"></goods-comment>
+
+    </view>
+    <view class="replys">
+        <view class='total'>({{list.length}})条回复</view>
+        <view class="reply" wx:for="{{list}}" wx:key="{{item.id}}">
+            <view class="reply-top">
+                <image src="{{item.user.avatar}}"></image>
+                <view class="reply-name">{{item.user.nickname}}</view>
+                <view class="reply-date">{{item.createdAt}}</view>
+            </view>
+            <view class="reply-text">{{item.comment}}</view>
+        </view>
+    </view>
+    <view class="bottom">
+        <input class="reply-input" placeholder="我也来插一嘴" bindinput="commentInput" value='{{comment}}'></input>
+        <view class='submit' bindtap="addComment">提交</view>
+    </view>
+</view>

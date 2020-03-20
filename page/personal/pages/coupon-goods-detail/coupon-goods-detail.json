@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "exchange-detail":"/components/exchange-detail/exchange-detail"
+  },
+  "navigationBarTitleText": "商品详情"
+}

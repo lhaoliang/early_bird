@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "goods-info": "/components/goods-info/goods-info"
+    },
+    "navigationBarTitleText": "试用详情",
+    "enablePullDownRefresh": true
+}

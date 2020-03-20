@@ -1,0 +1,11 @@
+<canvas canvas-id="myCanvas" class="canvas" binderror='error' />
+<view class="share-modal" bindtap="closeModal">
+    <form report-submit="{{true}}" bindsubmit="getFormId">
+        <view class="share-body" catchtap="stop">
+            <view class="close-btn" catchtap="closeModal">×</view>
+            <view class="share-title">生成海报成功 去分享给朋友吧～</view>
+            <image src="{{shareImage}}" class="share-image" mode="widthFix"></image>
+            <button class="btn-primary" bindtap="clickShare" form-type="submit">保存图片</button>
+        </view>
+    </form>
+</view>

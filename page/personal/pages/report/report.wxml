@@ -1,0 +1,18 @@
+<!--pages/report/report.wxml-->
+<view class='container bg'>
+    <view class='report-line'>
+        <image src="{{imgSrc+'xcx_images/'+'report-line.png'}}"></image>
+    </view>
+    <view class='report-bg'>
+        <image src="{{imgSrc+'xcx_images/'+'report-bg.png'}}"></image>
+        <image wx:if="{{status==0}}" class='report-status' src="{{imgSrc+'xcx_images/'+'seal-wait.png'}}"></image>
+        <image wx:if="{{status==1}}" class='report-status' src="{{imgSrc+'xcx_images/'+'seal-ok.png'}}"></image>
+        <image wx:if="{{status==2}}" class='report-status' src="{{imgSrc+'xcx_images/'+'seal-no.png'}}"></image>
+        <view class='title'>检测报告</view>
+        <view class='content'>
+           <view>{{comment}}</view>
+           <view class='imgs'><image wx:for="{{imgList}}" src='{{imgSrc+item}}'></image></view>
+           <view class='time'> <image src='/imgs/icon-time.png'></image> <text>{{time}}</text></view>
+        </view>
+    </view>
+</view>

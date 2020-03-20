@@ -1,0 +1,139 @@
+<form report-submit="{{true}}" bindsubmit="getFormId">
+  <view class="container">
+    <view class="send-info" wx:if="{{orderPath.count > 0 &&orderDetail.status>=3}}" bindtap="toLogistics">
+      <view class="send-left">
+        <view class="send-station">
+          <image src="/imgs/car.png" wx:if="{{orderPath.status == 1}}"></image>
+          <image src="/imgs/qianshou.png" wx:else></image>
+          <view>{{orderPath.routes[0]['remark']}}</view>
+        </view>
+        <view class="send-date">{{orderPath.routes[0]['date']}} {{orderPath.routes[0]['time']}}</view>
+      </view>
+      <image src="/imgs/right.svg"></image>
+    </view>
+    <view class="top-info" wx:if="{{orderDetail.status==4}}">
+      <image class="top-bg" src="{{imgSrc+'xcx_images/'+'refund-bg.png'}}"></image>
+      <image src="/imgs/icon-back.png" class="top-icon"></image>
+      <view>
+        <view class="top-title">请填写反馈报告</view>
+        <view class="top-text">要认真填写反馈报告哦</view>
+      </view>
+    </view>
+    <view class="top-info" wx:if="{{orderDetail.status==5}}">
+      <image class="top-bg" src="{{imgSrc+'xcx_images/'+'refund-bg.png'}}"></image>
+      <image src="/imgs/icon-access.png" class="top-icon"></image>
+      <view>
+        <view class="top-title">检测报告审核中</view>
+        <view class="top-text">平台正在审核 请耐心等待</view>
+      </view>
+    </view>
+    <view class="top-info" wx:if="{{orderDetail.status==6}}">
+      <image class="top-bg" src="{{imgSrc+'xcx_images/'+'refund-bg.png'}}"></image>
+      <image src="/imgs/re-success.png" class="top-icon icon-circle"></image>
+      <view>
+        <view class="top-title">检测报告已通过</view>
+        <view class="top-text">恭喜已通过 押金将会自动退回</view>
+      </view>
+    </view>
+    <view class="top-info" wx:if="{{orderDetail.status==7}}">
+      <image class="top-bg" src="{{imgSrc+'xcx_images/'+'refund-bg-red.png'}}"></image>
+      <image src="/imgs/refund-fail.png" class="top-icon" style="width:72rpx"></image>
+      <view>
+        <view class="top-title">检测报告未通过
+          <image src='/imgs/help.png'></image>
+        </view>
+        <view class="top-text">检测报告不符合要求</view>
+      </view>
+    </view>
+    <view class="address">
+      <view class="address-info">
+        <view class="address-name">{{orderDetail.consignee}}</view>
+        <view class="address-mobile">{{orderDetail.consigneeMobile}}</view>
+      </view>
+      <view class="address-text">
+        <image src="/imgs/address.png"></image>
+        <view>{{orderDetail.province}}{{orderDetail.city}}{{orderDetail.district}}{{orderDetail.receiveAddress}}</view>
+      </view>
+    </view>
+    <view class="goods-info">
+      <goods-info goodsInfo="{{orderDetail}}"></goods-info>
+    </view>
+    <view class="top goods-options" data-id='{{orderDetail.id}}' data-feed='{{orderDetail.hasFeedback}}' bindtap='toReport' wx:if="{{orderDetail.status==5||orderDetail.status==6||orderDetail.status==7}}">
+      <view class="goods-name rule">检测报告</view>
+      <view class="form-btn">
+        <text class='look-detail'>查看检测报告</text>
+        <image src="/imgs/right.svg" style="width:30rpx;height:30rpx;opacity:.7;margin-right:-8rpx;vertical-align:middle;"></image>
+      </view>
+    </view>
+    <view class="goods-options">
+      <view class="goods-option">
+        <view class="option-key">订单编号</view>
+        <view class="option-value">{{orderDetail.sn}}</view>
+      </view>
+      <view class="goods-option">
+        <view class="option-key">订单状态</view>
+        <view class="option-value primary" wx:if="{{orderDetail.status==2}}">待发货</view>
+        <view class="option-value primary" wx:if="{{orderDetail.status==3}}">已发货</view>
+        <view class="option-value primary" wx:if="{{orderDetail.status==4}}">待反馈</view>
+        <view class="option-value primary" wx:if="{{orderDetail.status==5}}">审核中</view>
+        <view class="option-value primary" wx:if="{{orderDetail.status==6}}">审核通过</view>
+        <view class="option-value danger" wx:if="{{orderDetail.status==7}}">审核失败</view>
+      </view>
+      <view class="goods-option">
+        <view class="option-key">下单时间</view>
+        <view class="option-value">{{orderDetail.createdAt}}</view>
+      </view>
+    </view>
+    <view class="goods-options">
+      <view class="goods-option">
+        <view class="option-key">商品总价</view>
+        <view class="option-value"><text>￥</text>{{orderDetail.goodsPrice}}</view>
+      </view>
+      <view class="goods-option">
+        <view class="option-key">押金</view>
+        <view class="option-value"><text>￥</text>{{orderDetail.deposit}}</view>
+      </view>
+    </view>
+    <view class="goods-options">
+      <view class="goods-option">
+        <view class="option-key">配送方式</view>
+        <view class="option-value">快递配送</view>
+      </view>
+      <view class="goods-option">
+        <view class="option-key">运费</view>
+        <view class="option-value"><text>￥</text>{{orderDetail.deliverFee}}</view>
+      </view>
+    </view>
+    <view class="order-bottom">
+      <view class="order-price">
+        实付款
+        <text>{{orderDetail.payPrice}}元</text>
+      </view>
+      <view class='feedback-time' wx:if="{{orderDetail.status==4}}">反馈倒计时：{{feedbackTime}}</view>
+      <button class="support-btn" open-type="contact" form-type="submit" wx:if="{{(orderDetail.status!=2)&&(orderDetail.status!=4)&&(orderDetail.status!=3)}}">
+        <image src="/imgs/support-active.png"></image>
+        <view>客服</view>
+      </button>
+    </view>
+  </view>
+  <view class="bottom-area" wx:if="{{orderDetail.status==2||orderDetail.status==4||orderDetail.status==3}}">
+    <view class="bottom-btns">
+      <button class="support-btn" open-type="contact" form-type="submit">
+        <image src="/imgs/support-active.png"></image>
+        <view>客服</view>
+      </button>
+      <button class="btn-primary small" wx:if="{{orderDetail.status==2&&orderDetail.isRemind==0}}" bindtap="clickRemind" form-type="submit">
+        提醒发货
+      </button>
+      <button disabled="{{orderDetail.isRemind==1}}" class="btn-primary small" wx:if="{{orderDetail.status==2&&orderDetail.isRemind==1}}" bindtap="clickRemind" form-type="submit">
+        已提醒
+      </button>
+      <button class="btn-primary small" wx:if="{{orderDetail.status==4}}" form-type="submit" data-item='{{orderDetail}}' bindtap='toFeedback'>
+        填写反馈
+      </button>
+      <button class="btn-primary small" wx:if="{{orderDetail.status==3}}" form-type="submit" data-item='{{orderDetail}}' bindtap='toLogistics'>
+        查看物流
+      </button>
+    </view>
+  </view>
+</form>

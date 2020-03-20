@@ -1,0 +1,106 @@
+<!--pages/my-sub/my-sub.wxml-->
+<view class="tabs">
+    <view class="tab" bindtap="chooseTab" data-tab="1">
+        <view class="{{tab==1?'tab-active':''}}">发售提醒</view>
+        <view class="{{tab==1?'active':''}}"></view>
+    </view>
+    <view class="tab" bindtap="chooseTab" data-tab="2">
+        <view class="{{tab==2?'tab-active':''}}">已预约</view>
+        <view class="{{tab==2?'active':''}}"></view>
+    </view>
+</view>
+<view wx:if="{{tab==1}}">
+    <!-- 这是没商品时候显示的 -->
+    <view class='success' wx:if="{{alarmTotal==0}}">
+        <image src="{{imgSrc+'xcx_images/'+'sub-no.png'}}"></image>
+        <view class='title'>暂无心仪商品</view>
+        <view class='text'>去首页看看吧～</view>
+        <view class='btn' bindtap='toHome'>逛逛首页</view>
+    </view>
+
+    <view class='inner' wx:for="{{alarmList}}" wx:key="item.activityId"  wx:if="{{item.appointActivity.isAvailable!=2}}">
+        <view class="order" data-id="{{item.activityId}}" data-idx='{{item.appointActivity.goodsId}}' bindtap='toPresaleDetail'>
+            <goods-info type="{{2}}" goodsInfo="{{item.appointActivity}}"></goods-info>
+        </view>
+        <view class='order-bot'>
+            <view>距发售开始 {{item.endTimeFormat}}</view>
+            <view class='cancel' bindtap='cancel' data-index='{{item.index}}' data-activityId='{{item.activityId}}'>取消提醒</view>
+        </view>
+    </view> 
+    <view class='inner' wx:for="{{alarmList}}" wx:key="item.activityId"  wx:if="{{item.appointActivity.isAvailable==2}}">
+        <view class="order" data-id="{{item.activityId}}" data-idx='{{item.appointActivity.goodsId}}'>
+            <goods-info type="{{2}}" goodsInfo="{{item.appointActivity}}"></goods-info>
+        </view>
+        <view class='order-bot'>
+            <view>已发售</view>
+            <view class='cancel' bindtap='cancel' data-index='{{item.index}}' data-activityId='{{item.activityId}}'>取消提醒</view>
+        </view>
+    </view> 
+</view>
+<view wx:if="{{tab==2}}">
+
+    <!-- 这是没商品时候显示的 -->
+    <view class='success' wx:if="{{appointTotal==0}}">
+        <image src="{{imgSrc+'xcx_images/'+'sub-no.png'}}"></image>
+        <view class='title'>暂无预约商品</view>
+        <view class='text'>去首页看看吧～</view>
+        <view class='btn'  bindtap='toHome'>逛逛首页</view>
+    </view>
+
+    <view class='inner'  wx:for="{{appointList}}" wx:key="item.id" wx:if="{{item.status==2}}" >
+        <view class='order-title'>
+            <view class='order-time'>下单时间：{{item.createdAt}} </view>
+            <view class='order-status'>预约中</view>
+        </view>
+        <view class="order" data-id="{{item.id}}" bindtap='toDetail'>
+            <goods-info  discount="true" type="{{2}}" goodsInfo="{{item}}"></goods-info>
+        </view>
+        <view class='order-bot'>
+            <view>距发售开始 {{item.endTimeFormat}}</view>
+            <view>尾款应付：¥ <text class='order-money'>{{item.tailPrice}}</text></view>
+        </view>
+        <view class='order-pay'>（已付定金：¥{{item.payPrice}}）</view>
+    </view>
+    <view class='inner' wx:for="{{appointList}}" wx:key="item.id" wx:if="{{item.status==3}}"  >
+        <view class='order-title'>
+            <view class='order-time'>下单时间：{{item.createdAt}} </view>
+            <view class='order-status status1'>待补款</view>
+        </view>
+        <view class="order" data-id='{{item.id}}' bindtap='toDetail'>
+            <goods-info  discount="true" type="{{2}}" goodsInfo="{{item}}"></goods-info>
+        </view>
+        <view class='order-bot'>
+            <view>补交尾款限期 {{item.endTimeFormat}}</view>
+            <view>尾款应付：¥ <text class='order-money'>{{item.tailPrice}}</text></view>
+        </view>
+        <view class='order-pay'>（已付定金：¥{{item.payPrice}}）</view>
+        <view class='order-btn' data-id='{{item.id}}' bindtap='clickPay'> <text class='btn-detail'>补交尾款</text> </view>
+    </view>
+    <view class='inner' wx:for="{{appointList}}" wx:key="item.id"  wx:if="{{item.status==4}}" >
+        <view class='order-title'>
+            <view class='order-time'>下单时间：{{item.createdAt}} </view>
+            <view class='order-status'>已付尾款</view>
+        </view>
+        <view class="order" data-id='{{item.id}}' bindtap='toDetail'>
+            <goods-info  discount="true" type="{{2}}" goodsInfo="{{item}}"></goods-info>
+        </view>
+        <view class='order-bot'>
+            <view>实付：¥ <text class='order-money'>9499.98</text></view>
+            <view data-id='{{item.tailOrderId}}' bindtap='toOrderDetail'><text class='btn-detail'>查看订单</text></view>
+        </view>
+    </view>
+    <view class='inner' wx:for="{{appointList}}" wx:key="item.id" wx:if="{{item.status==5}}">
+        <view class='order-title'>
+            <view class='order-time'>下单时间：{{item.payTime}} </view>
+            <view class='order-status status1'>已超时</view>
+        </view>
+        <view class="order" bindtap='lookOrder' data-id='{{item.id}}'>
+            <goods-info type="{{2}}" goodsInfo="{{item}}"></goods-info>
+        </view>
+        <view class='order-bot'>
+            <view>已付定金：¥ <text class='order-money'>{{item.payPrice}}</text></view>
+            <view><text class='btn-detail' data-id='{{item.id}}' bindtap='lookOrder'>查看订单</text></view>
+        </view>
+    </view>
+
+</view>

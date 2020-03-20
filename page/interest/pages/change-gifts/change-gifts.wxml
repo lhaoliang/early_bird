@@ -1,0 +1,74 @@
+<!-- pages/money-rule/money-rule.wxml -->
+<form report-submit="{{true}}" bindsubmit="getFormId">
+    <view class='container'>
+        <!-- <image src="{{imgSrc+'xcx_images/'+'change-goods-back.png'}}" /> -->
+        <view class="content">
+            <veiw class="title-text">
+                <view class="title-container">  
+                    <veiw class="title">我的成长值：{{growValue}}</veiw>
+                    <view class="change-rule" bindtap='toRule'>兑换规则</view>
+                </view>
+            </veiw>
+            <view class="change-now" wx:if="{{superGoods.length>0}}"> 
+                <view class="goods-info">
+                    <image mode='aspectFit' lazy-load='true' class="" src="{{imgSrc+superGoods[0].photo}}" />
+                    <view class="goods-detail">
+                        <view class="goods-info-items">奖品：{{superGoods[0].prizeName}}</view>
+                        <view class="goods-info-items">参数：{{superGoods[0].title}}</view>
+                        <view class="goods-info-items">成长值兑换：{{superGoods[0].growthValue}}</view>
+                    </view>
+                </view>
+                <view class="change-now-button" data-id='{{superGoods[0].id}}' data-type='{{superGoods[0].prizeType}}' bindtap='toCouponDetail'>立即兑换</view>
+            </view>
+            <view class="gift-place">
+                <view class="gift-place-title">奖品池</view>
+                <view class="gift-place-content" bindtap='toRecord'>
+                    <image  src="/imgs/change-time.png" />
+                    兑换记录
+                </view>
+            </view>
+            <view class="overflow">
+                <view class="change-info" wx:for="{{prizeList}}" wx:key="{{item.id}}">
+                    <view class="change-item" wx:if="{{item.isSuperJackpot!=1}}">
+                        <image lazy-load='true' mode="widthFix" src="{{imgSrc+item.photo}}" />
+                        <view class="change-text" wx:if="{{item.prizeType==1}}">
+                            <view class="c-i-tilte t-1">{{item.prizeName}}</view>
+                            <view class="c-i-tilte t-2">{{item.title}}</view>
+                            <view class="c-i-tilte t-3">
+                                <view class="bar"></view>
+                                {{item.growthValue}}成长值
+                            </view>
+                            
+                        </view>
+                        <view class="change-text" wx:if="{{item.prizeType==2}}">
+                            <view class="c-i-tilte t-1">{{item.prizeName}}</view>
+                            <view class="c-i-tilte t-2">{{item.title}}</view>
+                            <view class="c-i-tilte t-3">
+                                <view class="bar"></view>
+                                {{item.growthValue}}成长值
+                            </view>
+                        </view>
+                        <view class="change-text" wx:if="{{item.prizeType==3}}">
+                            <view class="c-i-tilte t-1">{{item.prizeName}}</view>
+                            <view class="c-i-tilte t-2">{{item.title}}</view>
+                            <view class="c-i-tilte t-3">
+                                <view class="bar"></view>
+                                {{item.growthValue}}成长值
+                            </view>
+                        </view>
+                        <view class="change-text" wx:if="{{item.prizeType==4}}">
+                            <view class="c-i-tilte t-1">{{item.prizeName}}</view>
+                            <view class="c-i-tilte t-2">{{item.title}}</view>
+                            <view class="c-i-tilte t-3">
+                                <view class="bar"></view>
+                                {{item.growthValue}}成长值
+                            </view>
+                        </view>
+                        <view class="change-text-button" data-id='{{item.id}}' data-type='{{item.prizeType}}' bindtap='toCouponDetail'>立即兑换</view>
+                    </view>
+                </view>
+            </view>
+            <view class='bottom-line'></view>
+        </view>
+    </view>
+</form>

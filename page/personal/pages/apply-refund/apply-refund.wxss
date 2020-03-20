@@ -1,0 +1,125 @@
+/* pages/submit-assess/submit-assess.wxss */
+.order {
+    padding: 58rpx 36rpx 38rpx 36rpx;
+    border-bottom: 10rpx solid #f0f5f5;
+}
+.main{
+  padding: 44rpx 36rpx 38rpx 36rpx;
+}
+
+.title-text{
+  color: #323333;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.title-info{
+  color: #C8CCCC;
+  font-size: 26rpx;
+  margin-left: 70rpx;
+}
+.title-money{
+  color: #323333;
+  font-size: 28rpx;
+  margin-left: 70rpx;
+}
+.price-icon{
+    font-size: 24rpx;
+}
+.title-max{
+  float: right;
+  color: #EE4D5D;
+  font-size: 22rpx;
+  position: relative;
+  top: 10rpx;
+}
+.toggle{
+  width: 30rpx;
+  height: 30rpx;
+  opacity: .7;
+  float: right;
+  margin-top: 14rpx;
+}
+.place{
+  font-size: 24rpx;
+  color: #C8CCCC;
+}
+.textarea{
+  width: 94%;
+  border: 1px solid #F0F5F5;
+  border-radius: 10rpx;
+  margin-top: 36rpx;
+  padding: 20rpx;
+  font-size: 26rpx;
+}
+.addBtn{
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #1CBDC5;
+  color: #fff;
+  text-align: center;
+  font-size: 32rpx;
+  border-radius: 6rpx;
+  position: fixed;
+  bottom: 40rpx;
+  left: 40rpx;
+  width: 89%;
+}
+.address-radio {
+    border-radius: 50%;
+    width: 34rpx;
+    height: 34rpx;
+    border: 1px solid #1cbdc5;
+    margin-right: 10rpx;
+    margin-top: 2rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.address-radio.active>view {
+    width: 22rpx;
+    height: 22rpx;
+    border-radius: 50%;
+    background-color: #1cbdc5;
+}
+.dialog{
+  border-top-left-radius: 50rpx;
+  border-top-right-radius: 50rpx;
+  background-color: #fff;
+  box-shadow: 0 -50rpx 70rpx #dfe2e2;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 111;
+}
+.dialog-title{
+  height: 142rpx;
+  line-height: 142rpx;
+  text-align: center;
+  font-size: 34rpx;
+  color: #323333;
+  border-bottom: 1px solid #F0F5F5;
+  padding: 0 50rpx;
+}
+.dialog-close{
+  color: #C8CCCC;
+  float: right;
+  font-size: 38rpx;
+}
+.dialog-con{
+  padding: 30rpx 46rpx;
+}
+.dialog-item{
+  display: flex;
+  justify-content: space-between;
+  line-height: 100rpx;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+.pos{
+  position: static;
+  width: 100%;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}

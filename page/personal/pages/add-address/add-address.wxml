@@ -1,0 +1,32 @@
+<view class="container">
+    <form report-submit="{{true}}" bindsubmit="getFormId">
+        <view class="form-item">
+            <view class="item-key">收货人</view>
+            <input class="item-value" placeholder="请输入收货人姓名" bindinput="getRealname"></input>
+        </view>
+        <view class="form-item">
+            <view class="item-key">联系电话</view>
+            <input class="item-value" placeholder="请输入联系电话" bindinput="getPhone"></input>
+        </view>
+        <view class="form-item" bindtap="selectDistrict">
+            <view class="item-key">所在区域</view>
+            <view class="item-date">
+                <image src="/imgs/address.png" class="address-icon"></image>
+                <input placeholder="请选择区域" value="{{location}}" disabled></input>
+                <image src="/imgs/right.svg" class="right-icon"></image>
+            </view>
+        </view>
+        <view class="form-item">
+            <view class="item-key">详细地址</view>
+            <input class="item-value" placeholder="请输入详细地址" bindinput="getDetail"></input>
+        </view>
+        <view class="address-default" bindtap='setDefault'>
+            <view class='address-radio {{isDefault==1?"active":""}}'>
+                <view></view>
+            </view>
+            <view>设为默认地址</view>
+        </view>
+        <button class="confirm-btn btn-primary" form-type="submit" bindtap='addAddress'>保存</button>
+        <city-picker isShow="{{showCityPicker}}" bindconfirm="confirmCity"></city-picker>
+    </form>
+</view>

@@ -1,0 +1,91 @@
+<form report-submit="{{true}}" bindsubmit="getFormId">
+    <view class="container">
+        <!-- <view class="address">
+            <view class="address-info">
+                <view class="address-name">{{address.realName}}</view>
+                <view class="address-mobile">{{address.phone}}</view>
+            </view>
+            <view class="address-text">
+                <image src="/imgs/address.png"></image>
+                <view>{{address.province}}{{address.city}}{{address.district}}{{address.detail}}</view>
+            </view>
+        </view> -->
+        <view class="goods-info">
+            <goods-info goodsInfo="{{orderDetail}}" type="2"></goods-info>
+        </view>
+        <view class="goods-options">
+            <view class="goods-option">
+                <view class="option-key">订单编号</view>
+                <view class="option-value">{{orderDetail.sn}}</view>
+            </view>
+            <view class="goods-option">
+                <view class="option-key">订单状态</view>
+                <view class="option-value primary" wx:if="{{orderDetail.status==1}}">支付中</view>
+                <view class="option-value primary" wx:if="{{orderDetail.status==2}}">预约中</view>
+                <view class="option-value primary" wx:if="{{orderDetail.status==3}}">待补款</view>
+                <view class="option-value primary" wx:if="{{orderDetail.status==4}}">已付尾款</view>
+            </view>
+            <view class="goods-option">
+                <view class="option-key">下单时间</view>
+                <view class="option-value">{{orderDetail.createdAt}}</view>
+            </view>
+        </view>
+        <view class="goods-options">
+            <view class="goods-option">
+                <view class="option-key">商品总价</view>
+                <view class="option-value">
+                    <text>￥</text>{{orderDetail.goodsUnitPrice}}</view>
+            </view>
+            <view class="goods-option">
+                <view class="option-key">已付定金</view>
+                <view class="option-value">
+                    <text>￥</text>{{orderDetail.payPrice}}</view>
+            </view>
+            <view class="goods-option color">
+                <view class="option-key">订金可抵扣</view>
+                <view class="option-value">¥{{orderDetail.tailDiscount}}</view>
+            </view>
+        </view>
+        <view class="goods-options">
+            <view class="goods-option">
+                <view class="option-key">配送方式</view>
+                <view class="option-value">快递配送</view>
+            </view>
+        </view>
+        <!-- <view class="order-bottom">
+            <view class="order-price">实付款
+                <text>9699.98元</text>
+            </view>
+        </view>
+        <view class='order-bottom'>
+            <view class="apply-btn">申请退款</view>
+        </view> -->
+    </view>
+    <view class='{{orderDetail.status==2?"":"bottom-area"}}'>
+        <view class="bottom-btns">
+            <button class="support-btn" open-type="contact" form-type="submit" wx:if="{{orderDetail.status!=2}}">
+                <image src="/imgs/support-active.png"></image>
+                <view>客服</view>
+            </button>
+            <view class='warn-btn' bindtap='setWarn' wx:if="{{orderDetail.status!=2&&orderDetail.status!=3&&orderDetail.status!=4}}">提醒发货</view>
+            <view class='warn-btn' wx:if="{{orderDetail.status==3}}" data-id='{{orderDetail.id}}' bindtap='toPay'>去支付</view>
+            <view class='warn-btn' data-id='{{orderDetail.tailOrderId}}' bindtap='toOrderDetail' wx:if="{{orderDetail.status==4}}">查看订单详情</view>
+        </view>
+    </view>
+    <!-- 这是弹出的申请原因 -->
+    <view class='dialog' wx:if="{{showRefundModal}}">
+        <view class='dialog-title'>
+            <text>退款原因</text>
+            <text class='dialog-close' bindtap="closeRefund">×</text>
+        </view>
+        <view class='dialog-con'>
+            <view class='dialog-item' wx:for="{{refundReasons}}" data-item='{{item}}' bindtap='setChoose' wx:key="{{item.id}}">
+                <view>{{item.content}}</view>
+                <view class='address-radio {{chooseRefundReason.id==item.id?"active":""}}'>
+                    <view></view>
+                </view>
+            </view>
+            <button class="btn-primary" form-type="submit" bindtap="confirmRefund">确定退款</button>
+        </view>
+    </view>
+</form>

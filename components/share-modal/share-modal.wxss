@@ -1,0 +1,69 @@
+/* components/share-modal/share-modal.wxss */
+
+.canvas {
+    width: 100vw;
+    height: calc(150vw + 34rpx + 50px);
+    position: fixed;
+    top: -1000px;
+}
+
+.share-modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 999;
+}
+
+.share-body {
+    border-radius: 46rpx 46rpx 0 0;
+    box-shadow: 0 1px 30rpx 0 rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    height: 920rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 64rpx 0 20rpx 0;
+    box-sizing: border-box;
+    position: relative;
+    animation: pop-up .3s;
+    margin-top: 0;
+}
+@keyframes pop-up{
+    from{
+        margin-top: 100vh;
+    }
+}
+
+.close-btn {
+    font-size: 42rpx;
+    color: #ccd2d3;
+    position: absolute;
+    right: 52rpx;
+    top: 20rpx;
+}
+
+.share-title {
+    color: #4a4c4d;
+    font-size: 26rpx;
+    text-align: center;
+}
+
+.share-image {
+    width: 360rpx;
+    box-shadow: 0 0 20rpx 0 #eee;
+}
+
+.btn-primary {
+    width: 678rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: #fff;
+    font-size: 32rpx;
+    background-color: #1cbdc5;
+    border-radius: 6rpx;
+}

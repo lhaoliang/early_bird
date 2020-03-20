@@ -1,0 +1,150 @@
+/* components/spec-modal/spec-modal.wxss */
+
+.spec-modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 99;
+}
+
+.spec-body {
+    height: 80vh;
+    box-sizing: border-box;
+    background-color: #fff;
+    margin-top: 19vh;
+    position: relative;
+    box-shadow: 0 2rpx 30rpx 0 rgba(0, 0, 0, 0.2);
+    animation: pop-up .3s;
+    border-radius: 46rpx 46rpx 0 0;
+}
+
+@keyframes pop-up {
+    from {
+        margin-top: 100vh;
+    }
+}
+
+.close-btn {
+    font-size: 42rpx;
+    color: #ccd2d3;
+    position: absolute;
+    right: 52rpx;
+    top: 20rpx;
+}
+
+.spec-top {
+    box-sizing: border-box;
+    padding: 70rpx 36rpx 44rpx 36rpx;
+    border-bottom: 10rpx solid #f0f5f5;
+    display: flex;
+}
+
+.spec-top>image {
+    width: 230rpx;
+    height: 230rpx;
+    margin-right: 42rpx;
+}
+
+.price {
+    color: #323333;
+    font-size: 34rpx;
+    font-weight: bold;
+    margin-top: 16rpx;
+}
+
+.price>text {
+    font-size: 26rpx;
+}
+
+.spec,
+.stock {
+    color: #646666;
+    font-size: 24rpx;
+    margin-top: 16rpx;
+}
+
+.spec-scroll {
+    overflow: auto;
+    height: calc(80vh - 486rpx);
+}
+
+.title {
+    font-size: 22rpx;
+    color: #969999;
+    margin: 28rpx 0 0 36rpx;
+}
+
+.spec-list {
+    padding: 0 36rpx;
+    margin-left: -52rpx;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.spec-item {
+    border: solid 2rpx #969999;
+    border-radius: 10rpx;
+    padding: 12rpx 30rpx 12rpx 26rpx;
+    color: #969999;
+    font-size: 24rpx;
+    display: inline-block;
+    margin-left: 52rpx;
+    margin-top: 36rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.spec-item.active {
+    border: solid 2rpx #1cbdc5;
+    color: #1cbdc5;
+}
+
+.count-box {
+    display: flex;
+    align-items: center;
+    padding: 30rpx 36rpx;
+}
+
+.count {
+    color: #646666;
+    font-size: 40rpx;
+    margin: 0 10rpx;
+    min-width: 66rpx;
+    text-align: center;
+}
+
+.limit {
+    color: #1cbdc5;
+    font-size: 22rpx;
+    margin-left: 46rpx;
+}
+
+button::after {
+    border: none;
+}
+
+/* 底部大按钮 */
+
+.spec-bottom {
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    padding: 20rpx 0;
+    background-color: #fff;
+    border-top: 1px solid #f0f5f5;
+}
+
+.btn-primary {
+    width: 678rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: #fff;
+    font-size: 32rpx;
+    background-color: #1cbdc5;
+    border-radius: 6rpx;
+}

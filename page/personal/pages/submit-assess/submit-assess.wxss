@@ -1,0 +1,73 @@
+/* pages/submit-assess/submit-assess.wxss */
+.order {
+    padding: 58rpx 36rpx 38rpx 36rpx;
+    border-bottom: 10rpx solid #f0f5f5;
+}
+.main{
+  padding: 44rpx 36rpx 38rpx 36rpx;
+}
+.comment-stars {
+    display: flex;
+    margin-left: 20rpx;
+}
+.comment-stars>image {
+    width: 28rpx;
+    height: 26rpx;
+    margin-left: 6rpx;
+}
+.title{
+  display: flex;
+  align-items: center;
+}
+.title-text{
+  color: #323333;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.place{
+  font-size: 24rpx;
+  color: #C8CCCC;
+}
+.asscee-con{
+    border:1px solid #f0f5f5;
+    padding: 20rpx;
+    margin-top: 40rpx;
+}
+.textarea{
+  width: 100%;
+  min-height: 60rpx;
+  font-size: 32rpx;
+  height: 90rpx;
+}
+.imgshow {
+  margin-top: 20rpx;
+}
+.imgshow>image{
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+}
+.addImg{
+  color: #1CBDC5;
+  font-size: 22rpx;
+  margin-top: 36rpx;
+}
+.addImg>image{
+  width: 30rpx;
+  height: 26rpx;
+  margin-left: 8rpx;
+  vertical-align: middle;
+}
+.addBtn{
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #1CBDC5;
+  color: #fff;
+  text-align: center;
+  font-size: 32rpx;
+  border-radius: 6rpx;
+  position: fixed;
+  bottom: 40rpx;
+  left: 40rpx;
+  width: 89%;
+}

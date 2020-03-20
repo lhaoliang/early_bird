@@ -1,0 +1,54 @@
+<!--pages/pay-end/pay-end.wxml-->
+        <view class='person-info' wx:if="{{address.id}}">
+            <image src="{{imgSrc+'xcx_images/'+'pay-end.png'}}"></image>
+            <view class='inner' bindtap="toAddress">
+                <view class='person'>
+                    <view style='font-weight:700'>{{address.realName}}</view>
+                    <view>{{address.phone}}</view>
+                </view>
+                <view class='address'>
+                    <view class='add-info'>
+                        <image src='/imgs/address-white.png'></image>{{address.province}}{{address.city}}{{address.district}}{{address.detail}}
+                    </view>
+                    <view class='icon-right'>
+                        <image src="/imgs/right-white.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+<view class="address-car" wx:else bindtap="toAddress">
+    <view>请添加您的第一个地址</view>
+    <image src="/imgs/car.png"></image>
+</view>
+<view class='good-detail'> 
+    <view class='title'>商品详情</view>
+    <goods-info type="{{2}}" goodsInfo="{{orderInfo}}"></goods-info>
+</view>
+<view class="goods-options">
+    <view class="goods-option">
+        <view class="option-key">商品价格</view>
+        <view class="option-value"><text>￥</text>{{orderInfo.goodsPrice}}</view>
+    </view>
+    <view class="goods-option" style='border:none;'>
+        <view class="option-key">押金</view>
+        <view class="option-value"><text>￥</text>{{orderInfo.deposit}}</view>
+    </view>
+</view>
+<view class="goods-options marbot">
+    <view class="goods-option">
+        <view class="option-key">配送方式</view>
+        <view class="option-value"><text>快递配送</text></view>
+    </view>
+    <view class="goods-option">
+        <view class="option-key">运费</view>
+        <view class="option-value"><text>￥</text>{{orderInfo.deliverFee}}</view>
+    </view>
+</view>
+<view class='foot'>
+    <view class='pay-money'>
+        <!-- <view class='pay-time'>离支付押金还剩 {{endTime}}</view> -->
+        <view class='pay-time'></view>
+        <view class='end'>共合计:<text style='font-size:32rpx;'>{{orderInfo.payPrice}}元</text></view>
+    </view>
+    <view class='pay-btn' disabled="{{!canUse}}" bindtap='clickPay'>去支付</view>
+</view>

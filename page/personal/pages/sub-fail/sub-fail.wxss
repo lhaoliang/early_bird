@@ -1,0 +1,104 @@
+/* pages/sub-fail/sub-fail.wxss */
+.fail-tip{
+    padding: 0 36rpx;
+    margin-top: 40rpx;
+    border-bottom: 10rpx solid #F0F5F5;
+}
+.fail-tip>image{
+    width: 100%;
+    height: 177rpx;
+    display: block;
+}
+.fail-info{
+    position: absolute;
+    top: 90rpx;
+    left: 160rpx;
+    z-index: 22;
+    display: flex;
+    align-items: center;
+}
+.left>image{
+    width: 68rpx;
+    height: 68rpx;
+}
+.right{
+    margin-left: 20rpx;
+    position: relative;
+    bottom: 10rpx;
+}
+.right-text{
+    color: #fff;
+    font-size: 30rpx;
+}
+.right-text>image{
+    width: 26rpx;
+    height: 26rpx;
+    margin-left: 270rpx;
+}
+.right-info{
+    color: #fff;
+    font-size: 24rpx;
+}
+.good{
+    padding: 34rpx 36rpx;
+    border-bottom: 10rpx solid #F0F5F5;
+}
+.goods-options {
+    border-bottom: 10rpx solid #f0f5f5;
+}
+
+.goods-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 36rpx;
+    height: 92rpx;
+    font-size: 22rpx;
+}
+
+.goods-option:not(:last-of-type) {
+    border-bottom: 1px solid #f0f5f5;
+}
+
+.option-key {
+    color: #969999;
+}
+
+.option-value {
+    color: #646666;
+}
+
+.option-col{
+    color: #ee4d5d;
+    font-size: 26rpx;
+}
+.bottom-area {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 20rpx 36rpx;
+    background-color: #fff;
+    display: flex;
+    padding-bottom: 50rpx;
+}
+
+.support-btn {
+    border: solid 2rpx #e1e5e5;
+    font-size: 24rpx;
+    color: #969999;
+    border-radius: 6rpx;
+    width: 162rpx;
+    margin-right: 16rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-col{
+    background-color: #9DC2C4;
+}
+.support-btn>image {
+    width: 42rpx;
+    height: 44rpx;
+    margin-right: 8rpx;
+}

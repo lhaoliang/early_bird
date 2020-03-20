@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "member-goods":"/components/member-goods/member-goods",
+    "progress-bar":"/components/progress-bar/progress-bar"
+  },
+  "navigationBarTitleText": "会员权益",
+  "enablePullDownRefresh": true
+ 
+}

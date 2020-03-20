@@ -1,0 +1,14 @@
+<view class="comment">
+    <view class="comment-top">
+        <image src="{{data.user.avatar}}" class="comment-avatar"></image>
+        <view class="comment-user">{{data.user.nickname}}</view>
+        <view class="comment-stars">
+            <image src="{{index<data.star?'/imgs/star.png':'/imgs/star-gray.png'}}" wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}"></image>
+        </view>
+        <view class="comment-date">{{data.createdAt}}</view>
+    </view>
+    <view class="comment-text">{{data.comment}}</view>
+    <view class="comment-images">
+        <image src="{{imgSrc+item.picUrl}}" bindtap='clickImg' data-src='{{item.picUrl}}' wx:for="{{data.storeEvaluationPics}}" wx:key="{{item.id}}"></image>
+    </view>
+</view>

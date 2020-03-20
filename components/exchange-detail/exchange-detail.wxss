@@ -1,0 +1,210 @@
+/* components/spec-modal/spec-modal.wxss */
+
+/* .spec-modal {
+    position: fixed;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    z-index: 99;
+} */
+
+.spec-body {
+   
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+
+    /* box-shadow: 0 2rpx 30rpx 0 rgba(0, 0, 0, 0.2); */
+    animation: pop-up .3s;
+}
+.phone{
+    width: 370rpx;
+    position: absolute;
+    left: 50%;
+    margin-left: -185rpx;
+    background-color: #FFF;
+    border: 1px solid #F0F5F5;
+    top: 350rpx;
+    text-align: center;
+    box-shadow: 1rpx 0 10rpx #f0f5f5; 
+    font-size: 24rpx;
+    border-radius: 8rpx;
+}
+.phone>view{
+    line-height: 120rpx;
+}
+
+@keyframes pop-up {
+    from {
+        margin-top: 100vh;
+    }
+}
+
+.top {
+    width: 100vw;
+    height: 84vw;
+    background-color: #FFEAC9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top>image {
+    width: 714rpx;
+    height: 514rpx;
+}
+
+.content {
+    background-color: #FFFFFF;
+    width: 100vw;
+    height: 76vw;
+}
+
+.content-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 10rpx solid #F0F5F5;
+    height: 110rpx;
+    padding: 0 28rpx;
+
+}
+
+.coupon {
+    font-weight: 600;
+    font-size: 36rpx;
+    color: #323333;
+        display: -webkit-box;
+    -webkit-line-clamp:1;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    width: 355rpx;
+}
+
+.need {
+    font-size: 28rpx;
+    font-weight: 400;
+}
+
+
+.primary {
+    color: #1CBDC5;
+}
+
+.content-description {
+    padding: 28rpx;
+    height: 260rpx;
+    /* overflow: auto; */
+}
+.content-description.pad{
+    padding: 28rpx 0;
+}
+
+.content-description>text {
+    margin: 0 0 16rpx 0;
+    display: block;
+    font-weight: 400;
+    font-size: 30rpx;
+    color: #323333;
+
+}
+
+.desc-item {
+    font-size: 28rpx;
+    font-weight: 400;
+    line-height: 52rpx;
+    color: #646666;
+    word-break: break-all;
+}
+.content-description .desc-item{
+    margin-bottom: 150rpx;
+}
+.content-button {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 32rpx;
+    color: #FFFFFF;
+    width: 698rpx;
+    height: 124rpx;
+    margin:auto;
+    position: fixed;
+    bottom: 22rpx;
+    left: 50%;
+    margin-left: -349rpx;
+    
+}
+.bg-white{
+   width:100%;
+height:150rpx;
+background:#fff;
+position:fixed;
+bottom:0;
+ 
+}
+.content-button>image{
+    position: absolute;
+    width: 698rpx;
+    height: 124rpx;
+    z-index:0;
+
+
+}
+.content-button>text{
+    height:124rpx;
+    z-index: 1;
+
+}
+.goods-detail {
+    padding: 30rpx 0;
+    display: table;
+    width: 100%;
+    margin-bottom: 150rpx;
+    box-sizing: border-box;
+}
+
+.goods-detail img {
+    width: 100%;
+    height: 300rpx;
+}
+
+.options {
+    padding: 0rpx 36rpx;
+    margin-bottom: 150rpx;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #646666;
+    font-size: 22rpx;
+    padding: 26rpx 0;
+}
+.option-right {
+    color: #323333;
+}
+.tabs {
+    display: flex;
+    color: #323333;
+    font-size: 24rpx;
+    border-bottom: 1px solid #f0f5f5;
+    padding: 30rpx 36rpx 0 36rpx;
+}
+
+.tab {
+    margin-right: 50rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 58rpx;
+}
+
+.tab>.active {
+    background-color: #1cbdc5;
+    margin-top: 6rpx;
+    width: 58rpx;
+    height: 4rpx;
+}

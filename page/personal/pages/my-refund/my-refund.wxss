@@ -1,0 +1,105 @@
+.orders {
+}
+
+.order {
+    padding: 58rpx 36rpx 38rpx 36rpx;
+    border-bottom: 10rpx solid #f0f5f5;
+}
+
+.order-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22rpx;
+    margin-bottom: 30rpx;
+}
+
+.order-time {
+    color: #969999;
+}
+
+.order-status {
+    color: #ee4d5d;
+}
+
+.order-status.primary {
+    color: #1cbdc5;
+}
+
+.order-status.dark {
+    color: #323333;
+}
+
+.order-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 34rpx;
+}
+
+.order-price {
+    font-size: 28rpx;
+    color: #323333;
+    font-weight: bold;
+}
+
+.order-price>text {
+    font-size: 22rpx;
+    margin-right: 2rpx;
+}
+
+.order-btn-primary {
+    color: #fff;
+    background-color: #1cbdc5;
+    border-radius: 6rpx;
+    text-align: center;
+    height: 64rpx;
+    line-height: 64rpx;
+    width: 220rpx;
+    font-size: 24rpx;
+    margin: 0;
+}
+
+.order-btn-primary:active {
+    background-color: #fff;
+    -webkit-tap-highlight-color: red;
+}
+
+.no-order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+
+.no-order>image {
+    width: 316rpx;
+    height: 238rpx;
+    margin-left: 28rpx;
+}
+
+.no-order-title {
+    font-size: 36rpx;
+    color: #1cbdc5;
+    margin-top: 24rpx;
+}
+
+.no-order-text {
+    color: #c8cccc;
+    font-size: 22rpx;
+    margin-top: 20rpx;
+}
+
+.no-order>button {
+    border-radius: 6rpx;
+    border: solid 2rpx #1cbdc5;
+    width: 320rpx;
+    text-align: center;
+    margin-top: 36rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    color: #1cbdc5;
+    font-size: 28rpx;
+    background-color: transparent;
+}

@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "goods-comment": "/components/goods-comment/goods-comment",
+        "goods-info": "/components/goods-info/goods-info"
+    },
+    "navigationBarTitleText": "预约失败"
+}

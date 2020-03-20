@@ -1,0 +1,21 @@
+/* pages/money-rule/money-rule.wxss */
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: #F2F7F7;
+    padding-top:40rpx;
+}
+.rule-card {
+    padding: 50rpx 32rpx;
+    background-color: #FFFFFF;
+    width:642rpx;
+    margin:30rpx 20rpx 0 20rpx;
+
+}
+
+.rule-item {
+    font-size: 26rpx;
+    color: #323333;
+    line-height: 40rpx;
+    word-break: break-all;
+}

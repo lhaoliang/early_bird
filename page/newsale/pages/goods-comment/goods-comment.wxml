@@ -1,0 +1,23 @@
+<view class="container">
+    <view class="top">
+        <view class="top-title">
+            商品评价
+            <text>({{total}})</text>
+        </view>
+        <view class="top-total">{{okRate}}的人觉得很赞</view>
+    </view>
+    <view class="comment" wx:for="{{list}}" wx:key="{{item.id}}">
+        <goods-comment data="{{item}}"></goods-comment>
+        <view class="comment-bottom">
+            <view style=" color: #969999; font-size: 22rpx;">规格:</view>
+            <view class="comment-spec" wx:for-items="{{item.goodsSpec}}" wx:for-item="spec">
+                {{spec+' '}}
+            </view>
+            <view class="comment-reply" bindtap="toCommentDetail" data-item="{{item}}">
+                <view>({{item.discussNum}})条回复</view>
+                <image src="/imgs/right.svg"></image>
+            </view>
+        </view>
+    </view>
+    <!-- <view class='subtn' bindtap='goCom' data-goodsId='{{goodsId}}'>发布评论</view> -->
+</view>

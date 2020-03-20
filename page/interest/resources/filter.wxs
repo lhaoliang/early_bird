@@ -1,0 +1,29 @@
+// 秒转成时分秒
+function timeFormat(time) {
+    var hours = parseInt(time / 3600);
+    hours = hours >= 10 ? hours : ('0' + hours);
+    time = time % 3600;
+    var munites = parseInt(time / 60);
+    munites = munites >= 10 ? munites : ('0' + munites);
+    time = time % 60;
+    time = time >= 10 ? time : ('0' + time)
+    return Number(hours) ? (hours + ':' + munites + ':' + time) : (munites + ':' + time);
+}
+
+var indexOf = function (array, index) {
+  console.log(array, index)
+    for (var i = 0; i < array.length; i++){
+        if (array[i] == index){
+            return 1
+        }
+    }
+    return -1
+}
+
+module.exports = {
+    timeFormat: timeFormat,
+    indexOf: indexOf
+}
+
+
+

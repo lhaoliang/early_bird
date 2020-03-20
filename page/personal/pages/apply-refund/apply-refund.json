@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "goods-info": "/components/goods-info/goods-info"
+  },
+  "navigationBarTitleText": "申请退款"
+}

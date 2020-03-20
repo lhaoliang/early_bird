@@ -1,0 +1,85 @@
+<form report-submit="{{true}}" bindsubmit="getFormId">
+<view class="container" style='margin-bottom:90rpx;'>
+    <view class="top-info" wx:if="{{orderDetail.status==2}}" bindtap="toLogistics">
+        <view class='company le10'>
+            物流公司: {{orderDetail.logisticsCompany}}
+        </view>
+        <view class='company ri10'>
+            物流编号: {{orderDetail.waybillNo}}
+        </view>
+        <image class="top-bg" src="{{imgSrc+'xcx_images/'+'exchange-bg.png'}}"></image>
+        <image src="/imgs/excar.png" class="top-icon"></image>
+        <view style='margin-top:20rpx;'>
+            <view class="top-title">已发货</view>
+            <view class="top-text">将于15个工作日内送达 请耐心等待</view>
+        </view>
+    </view>
+    <view class="top-info" wx:if="{{orderDetail.status==3}}" bindtap="toLogistics">
+        <view class='company le10'>
+            物流公司: {{orderDetail.logisticsCompany}}
+        </view>
+        <view class='company ri10'>
+            物流编号: {{orderDetail.waybillNo}}
+        </view>
+        <image class="top-bg" src="{{imgSrc+'xcx_images/'+'exchange-bg.png'}}"></image>
+        <image src="/imgs/exhome.png" class="top-icon"></image>
+        <view style='margin-top:20rpx;'>
+            <view class="top-title">已完成</view>
+            <view class="top-text">快递已到达 请注意查收</view>
+        </view>
+    </view>
+    <view class="address">
+        <view class="address-info">
+            <view class="address-name">{{orderDetail.consignee}}</view>
+            <view class="address-mobile">{{orderDetail.consigneeMobile}}</view>
+        </view>
+        <view class="address-text">
+            <image src="/imgs/address.png"></image>
+            <view>{{orderDetail.province}}{{orderDetail.city}}{{orderDetail.district}}{{orderDetail.receiveAddress}}</view>
+        </view>
+    </view>
+    <view class="goods-info">
+        <goods-info growType="true" wx:for="{{orderDetail.prize}}" wx:key="item.id" goodsInfo="{{item}}"></goods-info>
+    </view>
+    <view class="goods-options">
+        <view class="goods-option">
+            <view class="option-key">订单编号</view>
+            <view class="option-value">{{orderDetail.sn}}</view>
+        </view>
+        <view class="goods-option">
+            <view class="option-key">订单状态</view>
+            <view class="option-value primary" wx:if="{{orderDetail.status==1}}">待发货</view>
+            <view class="option-value primary" wx:if="{{orderDetail.status==2}}">已发货</view>
+            <view class="option-value primary" wx:if="{{orderDetail.status==3}}">已完成</view>
+        </view>
+        <view class="goods-option">
+            <view class="option-key">兑换时间</view>
+            <view class="option-value">{{orderDetail.payTime}}</view>
+        </view>
+    </view>
+    <view class="goods-options">
+        <view class="goods-option">
+            <view class="option-key">商品总价</view>
+            <view class="option-value">{{orderDetail.growthValue}}成长值</view>
+        </view>
+        <view class="goods-option">
+            <view class="option-key">配送方式</view>
+            <view class="option-value">快递配送</view>
+        </view>
+        <view class="goods-option">
+            <view class="option-key">运费</view>
+            <view class="option-value"><text>¥</text>{{orderDetail.deliverFee}}</view>
+        </view>
+    </view>
+    <view class="grow">成长值： <text>{{orderDetail.growthValue}}</text></view>
+</view>
+<view class="bottom-area">
+    <view class="bottom-btns">
+        <button class="support-btn" open-type="contact" form-type="submit">
+            <image src="/imgs/support-active.png"></image>
+            <view>客服</view>
+        </button>
+        <button wx:if="{{orderDetail.status==1}}" disabled='{{orderDetail.isRemind}}' form-type="submit" class="btn-primary" bindtap='clarm' data-id='{{orderDetail.id}}'>{{info}}</button>
+    </view>
+</view>
+  </form>

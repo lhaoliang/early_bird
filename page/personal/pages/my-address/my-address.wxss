@@ -1,0 +1,125 @@
+/* pages/my-address/my-address.wxss */
+
+.container {
+    padding-bottom: 150rpx;
+}
+
+.address {
+    border-bottom: 10rpx solid #f0f5f5;
+}
+
+.address-info {
+    color: #323333;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    padding: 40rpx 36rpx 30rpx 36rpx;
+}
+
+.address-text {
+    color: #646666;
+    font-size: 28rpx;
+    padding: 0 36rpx;
+    margin-bottom: 32rpx;
+}
+
+.address-bottom {
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #f0f5f5;
+    padding-left: 36rpx;
+}
+
+.address-default {
+    display: flex;
+    color: #969999;
+    font-size: 22rpx;
+    align-items: center;
+}
+
+.address-radio {
+    border-radius: 50%;
+    width: 34rpx;
+    height: 34rpx;
+    border: 1px solid #1cbdc5;
+    margin-right: 10rpx;
+    margin-top: 2rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.address-radio.active>view {
+    width: 22rpx;
+    height: 22rpx;
+    border-radius: 50%;
+    background-color: #1cbdc5;
+}
+
+.address-btns {
+    display: flex;
+}
+
+.address-btns>button {
+    font-size: 24rpx;
+    color: #1cbdc5;
+    width: 108rpx;
+    text-align: center;
+    height: 20rpx;
+    line-height: 20rpx;
+}
+
+.address-delete {
+    color: #ee4d5d !important;
+    border-left: 1px solid #f0f5f5;
+}
+
+.add-btn {
+    position: fixed;
+    width: 100vw;
+    height: 142rpx;
+    background-color: #fff;
+    bottom: 0;
+}
+
+.no-order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+
+.no-order>image {
+    width: 316rpx;
+    height: 220rpx;
+    margin-left: 28rpx;
+}
+
+.no-order-title {
+    font-size: 36rpx;
+    color: #1cbdc5;
+    margin-top: 24rpx;
+}
+
+.no-order-text {
+    color: #c8cccc;
+    font-size: 22rpx;
+    margin-top: 20rpx;
+}
+
+.no-order>button {
+    border-radius: 6rpx;
+    border: solid 2rpx #1cbdc5;
+    width: 320rpx;
+    text-align: center;
+    margin-top: 36rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    color: #1cbdc5;
+    font-size: 28rpx;
+    background-color: transparent;
+}

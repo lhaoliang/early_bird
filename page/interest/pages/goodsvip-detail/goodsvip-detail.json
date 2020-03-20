@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "spec-modal": "/components/spec-modal/spec-modal",
+        "goods-comment": "/components/goods-comment/goods-comment",
+        "share-modal": "/components/share-modal/share-modal",
+        "coupon-newguy": "/components/coupon-newguy/coupon-newguy"
+    },
+    "navigationBarTitleText": "商品详情",
+    "enablePullDownRefresh": true
+}

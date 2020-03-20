@@ -1,0 +1,150 @@
+/* pages/refund-detail/refund-detail.wxss */
+
+.top-info {
+    width: 678rpx;
+    height: 176rpx;
+    position: relative;
+    border-radius: 12px 12px 0px 0px;
+    margin: 0 auto;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.top-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.top-icon{
+    width: 60rpx;
+    height: 72rpx;
+    margin-right: 18rpx;
+}
+.top-title {
+    font-size: 30rpx;
+}
+
+.top-text {
+    font-size: 24rpx;
+    margin-top: 6rpx;
+}
+.circle{
+    width: 68rpx;
+    height: 68rpx
+}
+.goods-info {
+    padding: 46rpx 36rpx 42rpx 36rpx;
+    border-bottom: 10rpx solid #f0f5f5;
+    border-top: 10rpx solid #f0f5f5;
+}
+
+.goods-options {
+    border-bottom: 10rpx solid #f0f5f5;
+}
+
+.goods-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 36rpx;
+    height: 92rpx;
+    font-size: 22rpx;
+}
+
+.goods-option:not(:last-of-type) {
+    border-bottom: 1px solid #f0f5f5;
+}
+
+.option-key {
+    color: #969999;
+}
+
+.option-value {
+    color: #646666;
+}
+
+.option-value.danger {
+    color: #ee4d5d;
+    font-size: 26rpx;
+}
+
+.option-value.primary {
+    color: #1cbdc5;
+    font-size: 26rpx;
+}
+
+.option-value.dark {
+    color: #323333;
+    font-size: 26rpx;
+}
+
+.bottom-area {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 20rpx 36rpx 20rpx 36rpx;
+    background-color: #fff;
+    box-shadow: 0 2rpx 30rpx 0 rgba(0, 0, 0, 0.2);
+}
+
+.bottom-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-muted {
+    border-radius: 60rpx;
+    border: solid 2rpx #e1e5e5;
+    font-size: 24rpx;
+    color: #323333;
+    height: 64rpx;
+    line-height: 62rpx;
+    padding: 0 32rpx;
+    background-color: transparent;
+    margin: 0;
+}
+
+.support-btn {
+    border: solid 2rpx #e1e5e5;
+    font-size: 24rpx;
+    color: #969999;
+    border-radius: 6rpx;
+    width: 162rpx;
+    height: 100rpx;
+    margin-right: 16rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.support-btn>image {
+    width: 42rpx;
+    height: 44rpx;
+    margin-right: 8rpx;
+}
+
+.btn-primary {
+    width: 500rpx;
+    margin: 0;
+}
+.reason{
+    margin-bottom: 144rpx;
+    padding: 40rpx 36rpx;
+}
+.reason-title{
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #323333;
+    margin-bottom: 30rpx;
+}
+.reason-info{
+    padding: 35rpx 25rpx 55rpx;
+    background:rgba(240,245,245,1);
+    border-radius: 5rpx;
+    font-size: 26rpx;
+    color: #323333;
+}

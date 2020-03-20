@@ -1,0 +1,11 @@
+<!--pages/pay-success/pay-success.wxml-->
+<view class='success'>
+    <image src="{{imgSrc+'xcx_images/'+'success.png'}}"></image>
+    <view class='title'>支付成功</view>
+    <view class='text'>您已完成支付</view>
+    <view class='text'>感谢您对早鸟首发的支持！</view>
+</view>
+<view class='btn-group'>
+    <view class='btn btn-default' bindtap='toHome'>回到首页</view>
+    <view class='btn' bindtap='toDetail'>查看订单</view>
+</view>

@@ -1,0 +1,24 @@
+<view class="picker-view" animation="{{animationAddressMenu}}" bindtap="cityCancel">
+    <view class="picker-view-body" catchtap="stop">
+        <view class="top-btns">
+            <text catchtap="cityCancel" class="cancel-btn">取消</text>
+            <text catchtap="citySure" class="confirm-btn">确定</text>
+        </view>
+        <view>
+            <picker-view style="width: 100%; height: 45vh;" bindchange="cityChange" value="{{value}}" wx:key="">
+                <picker-view-column>
+                    <view wx:for="{{reapProvince}}" class="picker-item">
+                        {{item.name}}</view>
+                </picker-view-column>
+                <picker-view-column>
+                    <view wx:for="{{reapCity}}" class="picker-item" wx:key="">
+                        {{item.name}}</view>
+                </picker-view-column>
+                <picker-view-column>
+                    <view wx:for="{{reapCounty}}" class="picker-item" wx:key="">
+                        {{item.name}}</view>
+                </picker-view-column>
+            </picker-view>
+        </view>
+    </view>
+</view>

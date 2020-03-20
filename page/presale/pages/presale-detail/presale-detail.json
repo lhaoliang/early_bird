@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "spec-modal": "/components/spec-modal/spec-modal",
+        "goods-comment": "/components/goods-comment/goods-comment",
+        "share-modal": "/components/share-modal/share-modal"
+    },
+    "navigationBarTitleText": "预售详情",
+    "enablePullDownRefresh": true
+}

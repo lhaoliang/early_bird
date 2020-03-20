@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "goods-info": "/components/goods-info/goods-info",
+    "coupon-modal": "/components/coupon-modal/coupon-modal"
+  },
+  "navigationBarTitleText": "确认信息",
+  "enablePullDownRefresh": true
+}

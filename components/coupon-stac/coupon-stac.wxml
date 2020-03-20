@@ -1,0 +1,45 @@
+<view class="coupon {{showUseDescpt?'radius-top':'radius'}}  {{status==1?'bg-white':'bg-grey'}} ">
+    <view class="left-title {{modal==1?'left-title-bgimg-primary white':''}}  {{modal==2?'left-title-bgimg-danger white':''}}  {{(detail.couponType==1&&status!=2&&status!=3&&!modal)?'primary left-title-bgimg-white':'' }} {{(detail.couponType!=1&&status!=2&&status!=3&&!modal)?'danger left-title-bgimg-white':'' }} {{((status==2||status==3)&&!modal)?'info left-title-bgimg-white':'' }}">
+        {{title}}
+    </view>
+    <view class="coupon-left   {{status==1&&!modal?'':'border-right'}} {{(detail.couponType==1)&&status!=2&&status!=3&&!modal?'left-blue-bg':'' }} {{(detail.couponType!=1)&&status!=2&&status!=3&&!modal?'left-red-bg':'' }} ">
+        <view class="left-content ">
+            <view class="content-money {{modal==1?'danger':''}} {{modal==2?'primary':''}}">
+               {{detail.couponType==3?(detail.discount)/10:detail.couponFaceValue}}
+                <text>{{detail.couponType==3?'折':'￥'}}</text>
+            </view>
+            <view wx:if="{{detail.couponType == 2}}" class="content-desciption {{modal==1?'danger':''}} {{modal==2?'primary':''}}">
+                满{{detail.fullReductionConditions}}减{{detail.couponFaceValue}}
+            </view>
+            <view wx:if="{{detail.couponType == 1}}" class="content-desciption {{modal==1?'danger':''}} {{modal==2?'primary':''}}">
+                无门槛使用
+            </view>
+            <view wx:if="{{detail.couponType == 3}}" class="content-desciption {{modal==1?'danger':''}} {{modal==2?'primary':''}}">
+                全场商品{{(detail.discount)/10}}折
+            </view>
+        </view>
+    </view>
+    <view class="coupon-right">
+        <view class="right-middle">
+            <view class="right-title {{status==1?'':'white'}}"><text style='font-weight:700'>{{description}}</text></view>
+            <view class="right-data {{status==1?'':'white'}}">有效期至{{info.endTime}}</view>
+            <button data-flag='{{flag}}' catchtap="chooesCoupon" class="right-button  {{modal&&choosed?'border-primary white bg-primary':''}} {{status==1?'bg-white primary border-primary':'bg-grey white border-wihte'}}">
+                <image wx:if="{{modal}}" src="/imgs/coupon-{{modal&&choosed?'selected':'select'}}.png" />
+                {{modal&&choosed?'使用中':''}}
+                {{!choosed&&status==1?'立即使用':''}}
+               {{!modal&&!choosed&&status==2?'已使用':''}}
+               {{!modal&&!choosed&&status==3?'已过期':''}}
+            </button>
+        </view>
+        <view class="more" catchtap="seeUserDescpt"></view>
+    </view>
+</view>
+<view class="use-dscrp bg-white" wx:if="{{showUseDescpt}}">
+    <view class="text-box">
+        <view class="dscrp-item">使用说明</view>
+        <view class="dscrp-item">1.优惠券只能抵扣货款，不找零，不能抵扣配送费及其他费用</view>
+        <view class="dscrp-item">2.优惠券必须在有效期内使用，一旦使用将无法退回;</view>
+        <view class="dscrp-item">3.使用优惠券支付的订单，如发生退货，优惠券不予兑现，将按照实际金额退还支付货款;</view>
+        <view class="dscrp-item">4.优惠券规则由早鸟平台在法律允许范围内提供解释.</view>
+    </view>
+</view>

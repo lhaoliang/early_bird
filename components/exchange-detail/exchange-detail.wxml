@@ -1,0 +1,126 @@
+<!-- 规格弹窗 -->
+<view class="spec-modal" catchtap="closeModal">
+    <form report-submit="{{true}}" bindsubmit="getFormId">
+        <view wx:if="{{cate==2}}" class="spec-body">
+            <view class="top" style='background-color:#FFEAC9'>
+                <image mode='aspectFit' src="{{imgSrc+goodsInfoData.photo}}" />
+            </view>
+            <view class="content">
+                <view class="content-title">
+                    <view class="coupon">{{goodsInfoData.prizeName}}</view>
+                    <view class="need primary">兑换条件：{{goodsInfoData.growthValue}}成长值</view>
+                </view>
+                <view class="content-description">
+                    <text>兑换说明</text>
+                    <!-- <rich-text class="desc-item" nodes="{{goodsInfoData.exchangeRule}}"></rich-text> -->
+                    <text class="desc-item">{{exchangeRule}}</text>
+                </view>
+                <view class='bg-white'>
+                <view class="content-button" bindtap='change' data-id='{{goodsInfoData.id}}' data-type='{{goodsInfoData.prizeType}}'>
+                    <image src="{{imgSrc+'xcx_images/'+ 'exchange-button.png'}}" />
+                     <text>
+                        立即兑换
+                    </text>
+                </view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{cate==3}}" class="spec-body">
+            <view class="top" style='background-color:#EEF1FA'>
+                <image mode='aspectFit' src="{{imgSrc+goodsInfoData.photo}}" />
+            </view>
+            <!-- <view class='phone' wx:if="{{!phone}}">
+                <view>请先绑定手机号</view>
+                <view style='border-top:1px solid #ccc;' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">确定</view>
+            </view> -->
+            <view class="content">
+                <view class="content-title">
+                    <view class="coupon">{{goodsInfoData.prizeName}}</view>
+                    <view class="need primary">兑换条件：{{goodsInfoData.growthValue}}成长值</view>
+                </view>
+                <view class="content-description">
+                    <text>兑换说明</text>
+                    <text class="desc-item">{{exchangeRule}}</text>
+                </view>
+                <view wx:if="{{!phone}}" class='bg-white'>
+                    <button class="content-button"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >
+                        <image src="{{imgSrc+'xcx_images/'+ 'exchange-button.png'}}" />
+                        <text style='margin-bottom:110rpx;'>
+                            立即兑换
+                        </text>
+                    </button>
+                    </view>
+                    <view wx:if="{phone}}" class='bg-white'>
+                    <view class="content-button"  bindtap='change' data-id='{{goodsInfoData.id}}' data-type='{{goodsInfoData.prizeType}}'>
+                        <image src="{{imgSrc+'xcx_images/'+ 'exchange-button.png'}}" />
+                        <text>
+                            立即兑换
+                        </text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{cate==1}}" class="spec-body">
+            <view class="top" style='background-color:#FFE9DB'>
+                <image mode='aspectFit' src="{{imgSrc+goodsInfoData.photo}}" />
+            </view>
+            <view class="content">
+                <view class="content-title">
+                    <view class="coupon">{{goodsInfoData.prizeName}}</view>
+                    <view class="need primary">兑换条件：{{goodsInfoData.growthValue}}成长值</view>
+                </view>
+                <view class="content-description">
+                    <text>兑换说明</text>
+                    <text class="desc-item">{{exchangeRule}}</text>
+                </view>
+                <view class='bg-white'>
+                    <view class="content-button" bindtap='change' data-id='{{goodsInfoData.id}}' data-type='{{goodsInfoData.prizeType}}'>
+                        <image src="{{imgSrc+'xcx_images/'+ 'exchange-button.png'}}" />
+                        <text>
+                            立即兑换
+                        </text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{cate==4}}" class="spec-body" catchtap="stop">
+            <view class="top" style='background-color:#fff'>
+                <image mode='aspectFit' src="{{imgSrc+goodsInfoData.image}}" />
+            </view>
+            <view class="content">
+                <view class="content-title">
+                    <view class="coupon">{{goodsInfoData.prizeName}}</view>
+                    <view class="need primary">兑换条件：{{goodsInfoData.growthValue}}成长值</view>
+                </view>
+                <view class="tabs">
+                    <view class="tab" bindtap="chooseTab" data-tab="1">
+                        <view>商品详情</view>
+                        <view class="{{tab==1?'active':''}}"></view>
+                    </view>
+                    <view class="tab" bindtap="chooseTab" data-tab="2">
+                        <view>参数</view>
+                        <view class="{{tab==2?'active':''}}"></view>
+                    </view>
+                </view>
+                <view class='content-description pad'>
+                    <rich-text wx:if="{{tab==1&&description}}" class="goods-detail " nodes="{{description}}"></rich-text>
+                    <view wx:if="{{tab==2}}" class="options">
+                        <view class="option" wx:for="{{goodsInfoData.goods.goodsAttr}}">
+                            <view>{{item.name}}</view>
+                            <view class="option-right">{{item.value}}</view>
+                        </view>
+                    </view>
+                </view>
+
+                
+                    <view class="content-button" data-id='{{goodsInfoData.id}}' bindtap='exchangeDetail'>
+                        <image src="{{imgSrc+'xcx_images/'+ 'exchange-button.png'}}" />
+                        <text>
+                            立即兑换
+                        </text>
+                    </view>
+                </view>
+           
+        </view>
+    </form>
+</view>

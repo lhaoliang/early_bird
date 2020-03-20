@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "goods-info": "/components/goods-info/goods-info"
+  },
+  "navigationBarTitleText": "订单详情",
+  "enablePullDownRefresh": true
+}

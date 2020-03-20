@@ -1,0 +1,38 @@
+<form report-submit="{{true}}" bindsubmit="getFormId">
+    <view class="order" wx:for="{{detail.order.orderGoods}}" wx:key="{{item.id}}">
+        <goods-info type="{{1}}" goodsInfo="{{item}}"></goods-info>
+    </view>
+    <view class='main'>
+        <view style='overflow:hidden' bindtap="show">
+            <text class='title-text'>申请原因</text>
+            <text class='title-info' style='color:{{choose.content?"#323333":"#C8CCCC"}}'>{{choose.content?choose.content:'选择申请退款原因'}}</text>
+            <image class='toggle' src="/imgs/right.svg"></image>
+        </view>
+        <view style='overflow:hidden;margin:60rpx 0;'>
+            <text class='title-text'>退款金额</text>
+            <text class="title-money ">¥{{detail.refundMoney}}</text>
+            <!-- <text class='title-max'>最多¥9999.98</text> -->
+        </view>
+        <view class='title'>
+            <view class='title-text'>申请说明</view>
+        </view>
+        <textarea wx:if="{{flag}}" class='textarea' placeholder-class="place" value='{{remark}}' placeholder='请您详细填写申请说明（必填）' bindinput='setRemark'></textarea>
+            <button class='addBtn' bindtap='subReturn' form-type="submit">提交申请</button>
+    </view>
+    <!-- 这是弹出的申请原因 -->
+    <view class='dialog' wx:if="{{showDialog}}">
+        <view class='dialog-title'>
+            <text>退款原因</text>
+            <text class='dialog-close' bindtap="se">×</text>
+        </view>
+        <view class='dialog-con'>
+            <view class='dialog-item' wx:for="{{detail.refundReason}}" data-item='{{item}}' bindtap='setChoose' wx:key="{{item.id}}">
+                <view>{{item.content}}</view>
+                <view class='address-radio {{choose.id==item.id?"active":""}}'>
+                    <view></view>
+                </view>
+            </view>
+            <!-- <view class='addBtn pos'>确定退款</view> -->
+        </view>
+    </view>
+</form>

@@ -1,0 +1,12 @@
+<!-- 选择优惠券弹窗 -->
+<view class="spec-modal" catchtap="closeModal">
+    <form report-submit="{{true}}" bindsubmit="getFormId">
+        <view class="spec-body" catchtap="stop">
+            <view class="close-btn" catchtap="closeModal">×</view>
+            <view class="content">
+                <!-- 优惠券组件 -->
+                <coupon wx:for="{{listData}}" wx:key="item.id" data-item="{{item}}" info="{{item}}" detail="{{item.coupon}}" choosedCoupon="{{choosedCoupon}}"  modal="{{3}}" bindchoose="getChoose"></coupon>
+            </view>
+        </view>
+    </form>
+</view>

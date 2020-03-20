@@ -1,0 +1,94 @@
+<form report-submit="{{true}}" bindsubmit="getFormId">
+    <view class="container">
+        <view class="top">
+            <image src="{{imgSrc+'xcx_images/'+'my-bg.png'}}" class="top-bg"></image>
+            <image src="/imgs/message.png" class="top-message" bindtap="toMessage"></image>
+            <view wx:if="{{messageTotal}}" class="new-message"></view>
+            <image class="top-avatar" src="{{userInfo.avatar}}"></image>
+            <view class="top-right">
+                <view class="top-name">{{userInfo.nickname}}</view>
+                <button class="top-info" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+                    <image src="/imgs/phone.png"></image>
+                    {{userInfo.phone ? userInfo.phone : '还未进行手机验证 点击进行验证'}}
+                </button>
+                <!-- <view class="top-points">积分：{{userInfo.integral}}</view> -->
+            </view>
+        </view>
+        <view class="order">
+            <button class="form-btn order-title" bindtap="toOrders" form-type="submit">
+                <view>我的订单</view>
+                <image src="/imgs/right.svg"></image>
+            </button>
+            <view class="order-btns">
+                <button class="form-btn order-btn" bindtap="clickOrder" data-type="1" form-type="submit">
+                    <image src="/imgs/wait-pay.png"></image>
+                    <view>待付款</view>
+                </button>
+                <button class="form-btn order-btn" bindtap="clickOrder" data-type="2" form-type="submit">
+                    <image src="/imgs/wait-send.png"></image>
+                    <view>待发货</view>
+                </button>
+                <button class="form-btn order-btn" bindtap="clickOrder" data-type="3" form-type="submit">
+                    <image src="/imgs/already-send.png"></image>
+                    <view>已发货</view>
+                </button>
+                <button class="form-btn order-btn" bindtap="clickOrder" data-type="4" form-type="submit">
+                    <image src="/imgs/wait-comment.png"></image>
+                    <view>待评价</view>
+                </button>
+                <button class="form-btn order-btn" bindtap="toRefund" form-type="submit">
+                    <image src="/imgs/after-sale.png"></image>
+                    <view>售后</view>
+                </button>
+            </view>
+        </view>
+        <view class="line"></view>
+        <!-- <button class="form-btn btn-item" form-type="submit">
+            <view class="item-key">
+                <image src="/imgs/my-test.png"></image>我的试用</view>
+            <image src="/imgs/right.svg" class="item-img"></image>
+        </button> -->
+        <button class="form-btn btn-item" form-type="submit" bindtap='toSub'>
+            <view class="item-key">
+                <image src="/imgs/my-appoint.png"></image>
+                我的预约
+            </view>
+            <image src="/imgs/right.svg" class="item-img"></image>
+        </button>
+        <button class="form-btn btn-item" form-type="submit" bindtap='toTrial'>
+            <view class="item-key">
+                <image src="/imgs/my-trial.png"></image>
+                我的试用
+            </view>
+            <image src="/imgs/right.svg" class="item-img"></image>
+        </button>
+        <button class="form-btn btn-item" bindtap="toCoupon" form-type="submit">
+            <view class="item-key">
+                <image src="/imgs/my-coupon.png"></image>
+                优惠券
+            </view>
+            <image src="/imgs/right.svg" class="item-img"></image>
+        </button>
+        <button class="form-btn btn-item" bindtap="toAddress" form-type="submit">
+            <view class="item-key">
+                <image src="/imgs/my-address.png"></image>
+                地址管理
+            </view>
+            <image src="/imgs/right.svg" class="item-img"></image>
+        </button>
+        <button class="form-btn btn-item" open-type="contact" form-type="submit">
+            <view class="item-key">
+                <image src="/imgs/online-support.png"></image>
+                在线客服
+            </view>
+            <image src="/imgs/right.svg" class="item-img"></image>
+        </button>
+        <button class="form-btn btn-item" form-type="submit" bindtap="toAdvice"> 
+            <view class="item-key">
+                <image src="/imgs/icon-advice.png"></image>
+                意见反馈
+            </view>
+            <image src="/imgs/right.svg" class="item-img"></image>
+        </button>
+    </view>
+</form>

@@ -1,0 +1,86 @@
+/* pages/add-address/add-address.wxss */
+
+.container {
+    padding: 20rpx 0;
+}
+
+.form-item {
+    display: flex;
+    color: #323333;
+    font-size: 28rpx;
+    padding: 0 36rpx;
+    height: 120rpx;
+    align-items: center;
+    border-bottom: 1px solid #f0f5f5;
+}
+
+.item-key {
+    width: 180rpx;
+    font-weight: bold;
+}
+
+.item-value {
+    color: #646666;
+    font-size: 27rpx;
+    flex-grow: 1;
+}
+
+.item-date {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+    color: #646666;
+    position: relative;
+}
+
+.item-date>input {
+    font-size: 27rpx;
+    flex-grow: 1;
+}
+
+.address-icon {
+    width: 28rpx;
+    height: 28rpx;
+    position: absolute;
+    left: -34rpx;
+}
+
+.right-icon {
+    width: 30rpx;
+    height: 30rpx;
+    opacity: 0.7;
+}
+
+.address-default {
+    display: flex;
+    color: #969999;
+    font-size: 22rpx;
+    align-items: center;
+    margin: 58rpx 0 0 36rpx;
+}
+
+.address-radio {
+    border-radius: 50%;
+    width: 34rpx;
+    height: 34rpx;
+    border: 1px solid #1cbdc5;
+    margin-right: 10rpx;
+    margin-top: 2rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.address-radio.active>view {
+    width: 22rpx;
+    height: 22rpx;
+    border-radius: 50%;
+    background-color: #1cbdc5;
+}
+
+.confirm-btn {
+    position: fixed;
+    bottom: 42rpx;
+    left: 36rpx;
+}

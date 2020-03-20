@@ -1,0 +1,120 @@
+/* pages/my-sub/my-sub.wxss */
+.tabs {
+    display: flex;
+    color: #969999;
+    font-size: 24rpx;
+    border-bottom: 1px solid #f0f5f5;
+    padding: 30rpx 36rpx 0 36rpx;
+}
+
+.tab {
+    text-align: center;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tab-active{
+    color: #323333;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+.tab>.active {
+    background-color: #323333;
+    margin-top: 6rpx;
+    width: 58rpx;
+    height: 4rpx;
+}
+.inner{
+    padding: 50rpx 36rpx;
+    border-bottom: 10rpx solid #F0F5F5;
+}
+.inner:last-child{
+    border: none;
+}
+.order-title{
+    display: flex;
+    justify-content: space-between;
+    font-size: 22rpx;
+    margin-bottom: 35rpx;
+}
+.order-time{
+    color: #969999;
+}
+.order-status{
+    color: #1CBDC5;
+}
+.status1{
+    color: #EE4D5D;
+}
+.order-bot{
+    display: flex;
+    justify-content: space-between;
+    font-size: 22rpx;
+    margin-top: 46rpx;
+    align-items: center;
+}
+.order-money{
+    font-size: 28rpx;
+}
+.order-pay{
+    text-align: right;
+    color: #323333;
+    font-size: 22rpx;
+    margin-top: 20rpx;
+}
+.order-btn{
+    text-align: right;
+    margin-top: 40rpx;
+}
+.btn-detail{
+    display: inline-block;
+    width: 220rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 24rpx;
+    background-color: #1CBDC5;
+    border-radius: 5rpx;
+}
+.cancel{
+    font-size: 22rpx;
+    color: #646666;
+    padding: 17rpx 31rpx;
+    border: 1px solid #E1E5E6;
+    border-radius: 56rpx;
+}
+.success{
+    text-align: center;
+    margin-top: 150rpx;
+}
+.success>image{
+    width: 316rpx;
+    height: 238rpx;
+}
+.title{
+    font-size: 36rpx;
+    color: #1CBDC5;
+    margin: 20rpx 0 30rpx 0;
+    font-weight: bold;
+}
+.text{
+    font-size: 24rpx;
+    color: #C8CCCC;
+    line-height: 34rpx;
+}
+.btn{
+    font-size: 28rpx;
+    width: 310rpx;
+    height: 90rpx;
+    border: 2rpx solid #1CBDC5;
+    line-height: 88rpx;
+    text-align: center;
+    color: #1CBDC5;
+    border-radius: 5rpx;
+    position: relative;
+    left: 50%;
+    margin-left: -155rpx;
+    margin-top: 42rpx;
+}

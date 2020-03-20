@@ -1,0 +1,57 @@
+<!--pages/my-trial/my-trial.wxml-->
+<form report-submit="{{true}}" bindsubmit="getFormId">
+    <view class="container">
+        <view class="tabs">
+            <button class="form-btn tab {{tab==-1?'active':''}}" bindtap="chooseTab" data-tab="{{-1}}" form-type="submit">
+                <text>全部</text>
+                <view></view>
+            </button>
+            <button class="form-btn tab {{tab==2?'active':''}}" bindtap="chooseTab" data-tab="{{2}}" form-type="submit">
+                <text>待发货</text>
+                <view></view>
+            </button>
+            <button class="form-btn tab {{tab==3?'active':''}}" bindtap="chooseTab" data-tab="{{3}}" form-type="submit">
+                <text>已发货</text>
+                <view></view>
+            </button>
+            <button class="form-btn tab {{tab==4?'active':''}}" bindtap="chooseTab" data-tab="{{4}}" form-type="submit">
+                <text>待反馈</text>
+                <view></view>
+            </button>
+            <button class="form-btn tab {{tab==5?'active':''}}" bindtap="chooseTab" data-tab="{{5}}" form-type="submit">
+                <text>审核</text>
+                <view></view>
+            </button>
+        </view>
+        <view class="orders" wx:if="{{list.length>0}}">
+            <view class="order" wx:for="{{list}}" wx:key="{{item.id}}">
+                <view class="order-top">
+                    <view class='order-time'>下单时间：{{item.createdAt}} </view>
+                    <view class="order-status primary" wx:if="{{item.status==2}}">待发货</view>
+                    <view class="order-status primary" wx:if="{{item.status==3}}">已发货</view>
+                    <view class="order-status primary" wx:if="{{item.status==4}}">待反馈</view>
+                    <view class="order-status primary" wx:if="{{item.status==5}}">审核中</view>
+                    <view class="order-status primary" wx:if="{{item.status==6}}">审核通过</view>
+                    <view class="order-status fail" wx:if="{{item.status==7}}">审核失败</view>
+                </view>
+                <view bindtap="toOrderDetail" data-item="{{item}}">
+                    <goods-info type="{{2}}" goodsInfo="{{item}}"></goods-info>
+                </view>
+                <view class="order-bottom">
+                    <view class="order-price">
+                        <text>实付：¥</text>{{item.payPrice}}</view>
+                    <button class="form-btn order-btn-primary" data-item="{{item}}" wx:if="{{item.status==2&&item.isRemind==0}}" bindtap='clickRemind' form-type="submit">提醒发货</button>
+                    <button disabled="{{item.isRemind==1}}" class="form-btn order-btn-primary" wx:if="{{item.status==2&&item.isRemind==1}}" catchtap="clickRemind" data-item="{{item}}" form-type="submit">已提醒</button>
+                    <button class="form-btn order-btn-primary" wx:if="{{item.status==3}}" data-item="{{item}}" form-type="submit" bindtap='toLogistics'>查看物流</button>
+                    <button class="form-btn order-btn-primary" wx:if="{{item.status==4}}" data-item='{{item}}' form-type="submit" bindtap='toFeedback'>填写反馈</button>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{list.length==0}}" class="no-order">
+            <image src="{{imgSrc+'xcx_images/'+'no-order.png'}}"></image>
+            <view class="no-order-title">暂无相关订单</view>
+            <view class="no-order-text">去首页看看吧~</view>
+            <button bindtap="toHome" form-type="submit" class="form-btn">逛逛首页</button>
+        </view>
+    </view>
+</form>

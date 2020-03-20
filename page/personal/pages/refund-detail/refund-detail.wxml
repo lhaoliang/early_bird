@@ -1,0 +1,80 @@
+<form report-submit="{{true}}" bindsubmit="getFormId">
+<view class="container">
+    <view class="top-info" wx:if="{{orderDetail.refundRequest.status==1}}">
+        <image class="top-bg" src="{{imgSrc+'xcx_images/'+'refund-bg.png'}}"></image>
+        <image src="/imgs/refund-success.png" class="top-icon"></image>
+        <view>
+            <view class="top-title">您已成功发起退款</view>
+            <view class="top-text">平台将很快处理 请耐心等待</view>
+        </view>
+    </view>
+    <view class="top-info" wx:if="{{orderDetail.refundRequest.status==3}}">
+        <image class="top-bg" src="{{imgSrc+'xcx_images/'+'refund-bg.png'}}"></image>
+        <image src="/imgs/re-success.png" class="top-icon circle"></image>
+        <view>
+            <view class="top-title">已退款 {{orderDetail.refundRequest.refundMoney}}元</view>
+            <view class="top-text">退款成功 请注意查收账户金额</view>
+        </view>
+    </view>
+    <view class="top-info" wx:if="{{orderDetail.refundRequest.status==0}}">
+        <image class="top-bg" src="{{imgSrc+'xcx_images/'+'refund-bg.png'}}"></image>
+        <image src="/imgs/refund-back.png" class="top-icon"></image>
+        <view>
+            <view class="top-title">退款撤销成功</view>
+            <view class="top-text">您已撤销申请 交易将继续进行</view>
+        </view>
+    </view>
+    <view class="top-info" wx:if="{{orderDetail.refundRequest.status==2}}">
+        <image class="top-bg" src="{{imgSrc+'xcx_images/'+'refund-bg-red.png'}}"></image>
+        <image src="/imgs/refund-fail.png" class="top-icon" style="width:72rpx"></image>
+        <view>
+            <view class="top-title">退款失败</view>
+            <view class="top-text">对此结果有问题请咨询客服</view>
+        </view>
+    </view>
+    <view class="goods-info" wx:for="{{orderDetail.orderGoods}}" wx:for-item="itemName" wx:key="{{itemName.id}}">
+        <goods-info type="{{1}}" goodsInfo="{{itemName}}"></goods-info>
+    </view>
+    <view class="goods-options">
+        <view class="goods-option">
+            <view class="option-key">订单状态</view>
+            <view class="option-value primary" wx:if="{{orderDetail.refundRequest.status==0}}">退款已撤销</view>
+            <view class="option-value primary" wx:if="{{orderDetail.refundRequest.status==1}}">退款中</view>
+            <view class="option-value danger" wx:if="{{orderDetail.refundRequest.status==2}}">退款失败</view>
+            <view class="option-value primary" wx:if="{{orderDetail.refundRequest.status==3}}">退款成功</view>            
+        </view>
+        <view class="goods-option">
+            <view class="option-key">退款原因</view>
+            <view class="option-value">{{orderDetail.refundRequest.refundReason}}</view>
+        </view>
+        <view class="goods-option">
+            <view class="option-key">退款编号</view>
+            <view class="option-value">{{orderDetail.refundRequest.orderSn}}</view>
+        </view>
+        <view class="goods-option">
+            <view class="option-key">申请时间</view>
+            <view class="option-value">{{orderDetail.refundRequest.createdAt}}</view>
+        </view>
+        <view class="goods-option">
+            <view class="option-key">退款金额</view>
+            <view class="option-value">
+                <text>￥</text>{{orderDetail.refundRequest.refundMoney}}</view>
+        </view>
+    </view>
+
+    <view class='reason' wx:if="{{orderDetail.refundRequest.status==2}}">
+        <view class='reason-title'>失败原因</view>
+        <view class='reason-info'>{{orderDetail.refundRequest.dealReason}}</view>
+    </view>
+
+</view>
+<view class="bottom-area" wx:if="{{orderDetail.refundRequest.status!=3}}">
+    <view class="bottom-btns">
+        <button class="support-btn" style='background:#fff;'>
+            <image src="/imgs/support-active.png"></image>
+            <view>客服</view>
+        </button>
+        <button form-type="submit" class="btn-primary" bindtap='cancel' data-id='{{orderDetail.order.refundId}}' wx:if="{{orderDetail.order.refundStatus==2}}">撤销申请</button>
+    </view>
+</view>
+  </form>

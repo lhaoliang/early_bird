@@ -1,0 +1,42 @@
+<view class="coupon {{showUseDescpt?'radius-top':'radius'}}  {{status==1?'bg-white':'bg-grey'}} ">
+    <view class="left-title {{detail.couponType==1?'left-title-bgimg-danger white':'left-title-bgimg-primary white'}} ">
+        {{title}}
+    </view>
+    <view class="coupon-left  {{status==1&&!modal?'':'border-right'}}">
+        <view class="left-content ">
+            <view class="content-money {{detail.couponType!=1?'danger':'primary'}}">
+                {{detail.couponType==3?(detail.discount)/10:detail.couponFaceValue}}
+                <text>{{detail.couponType==3?'折':'￥'}}</text>
+            </view>
+            <view wx:if="{{detail.couponType == 2}}" class="content-desciption {{detail.couponType!=1?'danger':'primary'}}">
+                满{{detail.fullReductionConditions}}减{{detail.couponFaceValue}}
+            </view>
+            <view wx:if="{{detail.couponType == 1}}" class="content-desciption {{detail.couponType!=1?'danger':'primary'}}">
+                无门槛使用
+            </view>
+            <view wx:if="{{detail.couponType == 3}}" class="content-desciption {{detail.couponType!=1?'danger':'primary'}}">
+                全场商品{{(detail.discount)/10}}折
+            </view>
+        </view>
+    </view>
+    <view class="coupon-right">
+        <view class="right-middle">
+            <view class="right-title {{status==1?'':'white'}}">{{description}}</view>
+            <view class="right-data {{status==1?'':'white'}}">有效期至{{info.endTime}}</view>
+            <button catchtap="{{modal&&info.id == choosedCoupon ? 'cancleChoose' : 'chooesCoupon'}}" class="right-button  {{modal&&info.id == choosedCoupon?'border-primary white bg-primary':''}} {{status==1?'bg-white primary border-primary':'bg-grey white border-wihte'}}">
+                <image wx:if="{{modal}}" src="/imgs/coupon-{{modal&&info.id == choosedCoupon?'selected':'select'}}.png" />
+                {{modal && info.id == choosedCoupon ? '使用中' : '立即使用'}}
+            </button>
+        </view>
+        <view class="more" catchtap="seeUserDescpt"></view>
+    </view>
+</view>
+<view class="use-dscrp bg-white" wx:if="{{showUseDescpt}}">
+    <view class="text-box">
+        <view class="dscrp-item">使用说明</view>
+        <view class="dscrp-item">1.优惠券只能抵扣货款，不找零，不能抵扣配送费及其他费用</view>
+        <view class="dscrp-item">2.优惠券必须在有效期内使用，一旦使用将无法退回;</view>
+        <view class="dscrp-item">3.使用优惠券支付的订单，如发生退货，优惠券不予兑现，将按照实际金额退还支付货款;</view>
+        <view class="dscrp-item">4.优惠券规则由早鸟平台在法律允许范围内提供解释.</view>
+    </view>
+</view>

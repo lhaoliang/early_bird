@@ -1,0 +1,367 @@
+/* pages/order-detail/order-detail.wxss */
+
+.container {
+    padding-bottom: 150rpx;
+}
+.top-info {
+    width: 678rpx;
+    height: 176rpx;
+    position: relative;
+    border-radius: 12px 12px 0px 0px;
+    margin: 0 auto;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.top-icon{
+    width: 60rpx;
+    height: 72rpx;
+    margin-right: 18rpx;
+}
+.icon-circle{
+    width: 68rpx;
+    height: 68rpx;
+}
+.top-title {
+    font-size: 30rpx;
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 36rpx;
+    height: 92rpx;
+}
+.goods-name{
+    font-size: 28rpx;
+    color: #323333;
+}
+.look-detail{
+    font-size: 22rpx;
+    color: #969999;
+    vertical-align:middle;
+}
+.top-title>image{
+    width: 26rpx;
+    height: 26rpx;
+    position: relative;
+    left: 130rpx;
+    vertical-align: middle;
+}
+
+.top-text {
+    font-size: 24rpx;
+    margin-top: 6rpx;
+}
+
+.send-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 28rpx 20rpx 44rpx;
+    border-bottom: 1px solid #f0f5f5;
+}
+
+.send-left {
+}
+
+.send-station {
+    color: #323333;
+    font-weight: bold;
+    font-size: 26rpx;
+    display: flex;
+    align-items: center;
+}
+
+.send-station>image {
+    width: 36rpx;
+    height: 26rpx;
+    margin-right: 14rpx;
+}
+
+.send-date {
+    padding-left: 50rpx;
+    color: #969999;
+    font-size: 22rpx;
+    margin-top: 14rpx;
+}
+
+.send-info>image {
+    width: 30rpx;
+    height: 30rpx;
+    opacity: 0.7;
+}
+
+.address {
+    border-bottom: 10rpx solid #f0f5f5;
+    padding-bottom: 38rpx;
+}
+
+.address-info {
+    color: #323333;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: space-between;
+    padding: 32rpx 92rpx 30rpx 92rpx;
+}
+
+.address-name {
+    font-weight: bold;
+}
+
+.address-text {
+    color: #646666;
+    font-size: 24rpx;
+    padding: 0 92rpx 0 48rpx;
+    display: flex;
+    align-items: center;
+    word-break: break-all;
+}
+
+.address-text>image {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 12rpx;
+    flex-shrink: 0;
+}
+
+.goods-info {
+    padding: 46rpx 36rpx 42rpx 36rpx;
+    border-bottom: 10rpx solid #f0f5f5;
+}
+
+.goods-options {
+    border-bottom: 10rpx solid #f0f5f5;
+}
+
+.goods-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 36rpx;
+    height: 92rpx;
+    font-size: 22rpx;
+}
+
+.goods-option:not(:last-of-type) {
+    border-bottom: 1px solid #f0f5f5;
+}
+
+.option-key {
+    color: #969999;
+}
+
+.option-value {
+    color: #646666;
+}
+
+.option-value.danger {
+    color: #ee4d5d;
+    font-size: 26rpx;
+}
+
+.option-value.primary {
+    color: #1cbdc5;
+    font-size: 26rpx;
+}
+
+.option-value.danger-round {
+    height: 50rpx;
+    line-height: 50rpx;
+    padding: 0 22rpx;
+    font-size: 26rpx;
+    color: #ee4d5d;
+    border: 2rpx solid #ee4d5d;
+    border-radius: 50rpx;
+}
+
+.option-value.dark-round {
+    height: 48rpx;
+    line-height: 48rpx;
+    padding: 0 20rpx;
+    font-size: 26rpx;
+    color: #323333;
+    border: 2rpx solid #323333;
+    border-radius: 50rpx;
+}
+
+.option-value>text {
+    font-size: 18rpx;
+}
+
+.order-close {
+    font-size: 24rpx;
+    color: #646666;
+}
+
+.order-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28rpx 36rpx 18rpx 36rpx;
+    flex-direction: row-reverse;
+}
+
+.order-price {
+    color: #323333;
+    font-size: 26rpx;
+    padding-bottom: 2rpx;
+}
+
+.order-price>text {
+    font-size: 32rpx;
+    font-weight: bold;
+    margin-left: 6rpx;
+    vertical-align: -2rpx;
+}
+
+.other-btns {
+    border-top: 1px solid #f0f5f5;
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 24rpx 36rpx 24rpx 36rpx;
+}
+
+.bottom-area {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 20rpx 36rpx 20rpx 36rpx;
+    background-color: #fff;
+    box-shadow: 0 2rpx 30rpx 0 rgba(0, 0, 0, 0.2);
+}
+
+.bottom-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-muted {
+    border-radius: 60rpx;
+    border: solid 2rpx #e1e5e5;
+    font-size: 24rpx;
+    color: #323333;
+    height: 64rpx;
+    line-height: 62rpx;
+    padding: 0 32rpx;
+    background-color: transparent;
+    margin: 0;
+}
+
+.support-btn {
+    border: solid 2rpx #e1e5e5;
+    font-size: 24rpx;
+    color: #969999;
+    border-radius: 6rpx;
+    width: 162rpx;
+    height: 100rpx;
+    margin-right: 16rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    margin-left: 0;
+}
+
+.support-btn>image {
+    width:42rpx;
+    height: 44rpx;
+    margin-right: 8rpx;
+}
+
+.btn-primary.small {
+    width: 500rpx;
+    margin: 0;
+}
+.none-place{
+    width: 500rpx;
+    margin: 0;
+}
+
+.dialog {
+    border-top-left-radius: 50rpx;
+    border-top-right-radius: 50rpx;
+    background-color: #fff;
+    box-shadow: 0 1px 30rpx #dfe2e2;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 11;
+    animation: pop-up 0.3s;
+}
+
+.dialog-title {
+    height: 142rpx;
+    line-height: 142rpx;
+    text-align: center;
+    font-size: 34rpx;
+    color: #323333;
+    border-bottom: 1px solid #f0f5f5;
+    padding: 0 50rpx;
+}
+
+.dialog-close {
+    color: #c8cccc;
+    float: right;
+    font-size: 38rpx;
+}
+
+.dialog-con {
+    padding: 30rpx 46rpx;
+}
+
+.dialog-item {
+    display: flex;
+    justify-content: space-between;
+    line-height: 100rpx;
+    align-items: center;
+    font-size: 30rpx;
+}
+.address-radio {
+    border-radius: 50%;
+    width: 34rpx;
+    height: 34rpx;
+    border: 1px solid #1cbdc5;
+    margin-right: 10rpx;
+    margin-top: 2rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.address-radio.active>view {
+    width: 22rpx;
+    height: 22rpx;
+    border-radius: 50%;
+    background-color: #1cbdc5;
+}
+.refund-fail{
+    display: flex;
+    justify-content: space-between;
+    font-size: 26rpx;
+    padding: 0 36rpx;
+    align-items: center;
+    padding-bottom: 50rpx;
+}
+.refund-text{
+    color: #EE4D5D
+}
+.refund-reason{
+    font-size: 24rpx;
+    color: #969999;
+    margin-right: 6rpx;
+}
+.feedback-time{
+    font-size: 24rpx;
+    color: #646666;
+}

@@ -1,0 +1,88 @@
+<form report-submit="{{true}}" bindsubmit="getFormId">
+    <view class="container">
+        <image src="{{imgSrc+'xcx_images/'+'my-bg.png'}}" class="top-bg"></image>
+            <view class="card-icon">
+                <view class="icon-title">
+                    早鸟会员权益
+                    <image src="/imgs/interest-money.png" />
+                </view>
+                <view class="icons">
+                    <view class="icon-item">
+                        <image src="{{imgSrc+'xcx_images/'+'interest-icons-6.png'}}" />
+                        购物低至6折起
+                    </view>
+                    <view class="icon-item">
+                        <image src="{{imgSrc+'xcx_images/'+'interest-icons-coupon.png'}}" />
+                        积分兑换大奖
+                    </view>
+                    <view class="icon-item">
+                        <image src="{{imgSrc+'xcx_images/'+'interest-icons-member.png'}}" />
+                        会员试用特权
+                    </view>
+                </view>
+            </view>
+        <view class="card-container">
+            <view class="exchange-card">
+                <view class="exchange-left">
+                    <view class="exchange-title">成长值兑换丰厚奖品</view>
+                    <view class="exchange-content">100000成长值即可兑换苹果电脑</view>
+                </view>
+                <view class="exchange-right" bindtap="toChangeGifts">去兑奖</view>
+            </view>
+            <view class="task-card">
+                <view wx:if="{{!userInfo.isVip&&userInfo.growthValue<150}}" class="task-title">达到150成长值即可成为会员</view>
+                <view wx:else class="task-title">成长值越多 兑换的奖品越丰厚哦～</view>
+
+                <!-- 进度条 -->
+                <progress-bar now="{{userInfo.growthValue}}" min="{{0}}" max="{{149}}"></progress-bar>
+                <!-- <progress-bar wx:else now="{{userInfo.growthValue}}" min="{{100}}" max="{{1000}}"></progress-bar> -->
+                <view class="progress-title">-成长任务-</view>
+                <view class="progress-item">
+                    <image class="progress-icon" src="/imgs/invitation.png"></image>
+                    <view class="progress-text">
+                        <view class="progress-text-title">邀请好友</view>
+                        <view class="progress-text-content">好友绑定手机号即可获得50成长值</view>
+                    </view>
+                    <button class="bgc-danger" bindtap='toInvitation'>去邀请</button>
+                </view>
+                <view class="progress-item">
+                    <image class="progress-icon" src="/imgs/write.png"></image>
+                    <view class="progress-text">
+                        <view class="progress-text-title">填写问卷</view>
+                        <view class="progress-text-content">填写问卷即可获得50成长值</view>
+                    </view>
+                    <button class="bgc-primary" wx:if="{{userInfo.questionnaireTasks}}">已完成</button>                    
+                    <button wx:else class="bgc-danger" bindtap='toquestion'>去填写</button>
+                </view>
+                <view class="progress-item">
+                    <image class="progress-icon" src="/imgs/shopping.png"></image>
+                    <view class="progress-text">
+                        <view class="progress-text-title">购买新品</view>
+                        <view class="progress-text-content">购买发售新品即可获得100成长值</view>
+                    </view>
+                    <button class="bgc-primary" wx:if="{{userInfo.purchasingTask}}">已完成</button>
+                    <button class="bgc-danger" wx:else bindtap='toHome'>去购买</button>
+                </view>
+                <view class="progress-item">
+                    <image class="progress-icon" src="/imgs/apply.png"></image>
+                    <view class="progress-text">
+                        <view class="progress-text-title">绑定手机号</view>
+                        <view class="progress-text-content">绑定手机号即可获得50成长值</view>
+                    </view>
+                    <button class="bgc-primary" wx:if="{{userInfo.phone}}">已完成</button>
+                    <button class="bgc-danger"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:else>去绑定</button>
+                </view>
+            </view>
+            <view class="member-place-card">
+                <view class="member-title">会员专区</view>
+                <view class="member-content">打动人心的精品</view>
+                <!-- 会员商品信息 -->
+                <view class="member-goods">
+                    <member-goods wx:for="{{goodsList}}" wx:key="{{item.id}}" goodsInfo="{{item}}"></member-goods>
+                </view>
+            </view>
+        </view>
+    </view>
+            <!-- 新人领券 -->
+        <!-- <coupon-newguy mode="{{2}}" wx:if="{{!isMember}}" bindclose="showBeMember"></coupon-newguy> -->
+</form>

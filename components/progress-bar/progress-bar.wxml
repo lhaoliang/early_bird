@@ -1,0 +1,10 @@
+<view class="progress-bar">
+    <view wx:if="{{now>0}}" class="progress-bar-now" style="width:{{now>149?barValue/10:barValue/150*100}}%;min-width:13%;">
+       <text wx:if='{{(now>0&&now<20)||(now>=100&&now<150)}}' style='margin-right:14rpx'>{{now}}</text>
+       <text wx:else style='margin-right:30rpx'>{{now}}</text>
+    </view>
+    <!-- {{((now>0&&now<20)||(now>100&&now<200))?12rpx:30rpx;}} -->
+    <view wx:if="{{now==0}}" class="progress-bar-now nobg" style="width:100%">
+       <text class='info'>您当前还没有成长值哦 快来做任务吧～</text>
+    </view>
+</view>

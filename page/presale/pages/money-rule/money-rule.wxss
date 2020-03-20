@@ -1,0 +1,91 @@
+/* pages/money-rule/money-rule.wxss */
+.rule{
+    padding: 50rpx 32rpx;
+}
+.rule-item{
+    font-size: 26rpx;
+    color: #323333;
+    line-height: 48rpx;
+    margin-bottom: 40rpx;
+}
+.serve{
+    display: inline;
+    font-size: 26rpx;
+    padding: 0;
+    background:none;
+}
+
+
+
+
+
+/* .top {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 48rpx 36rpx;
+    border-bottom: #f0f5f5 10rpx solid;
+}
+
+.top-title {
+    color: #323333;
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+.top-title>text {
+    font-size: 24rpx;
+}
+
+.top-total {
+    color: #c8cccc;
+    font-size: 22rpx;
+}
+
+.comment {
+    padding-top: 34rpx;
+    border-bottom: 1px solid #F0F5F5;
+}
+.comment-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 36rpx 28rpx 36rpx;
+    margin-top: -10rpx;
+}
+
+.comment-spec {
+    color: #969999;
+    font-size: 22rpx;
+}
+
+.comment-reply {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-reply>image {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 10rpx;
+}
+
+.comment-reply>view {
+    color: #646666;
+    font-size: 22rpx;
+}
+
+.subtn{
+    height: 100rpx;
+  line-height: 100rpx;
+  background-color: #1CBDC5;
+  color: #fff;
+  text-align: center;
+  font-size: 32rpx;
+  border-radius: 6rpx;
+  position: fixed;
+  bottom: 40rpx;
+  left: 40rpx;
+  width: 89%;
+} */

@@ -1,0 +1,41 @@
+<!-- 新手大礼包&成为会员弹窗 -->
+<view class="spec-modal" catchtap="closeModal">
+    <form report-submit="{{true}}" bindsubmit="getFormId">
+        <view class="spec-body" catchtap="stop">
+            <image class="close-btn" catchtap="closeModal" src="/imgs/close-coupon.png" />
+            <view class="coupon-box">
+                <view class="title {{mode==1?'bgc-danger':'bgc-primay'}}">
+                    <view>
+                        <view class="title-top">{{mode==1?"新手大礼包":"早鸟会员"}}</view>
+                        <view class="title-des">{{mode==1?"¥10无门槛优惠劵+¥45满减劵":"成为早鸟会员即可享受特价商品"}}</view>
+                    </view>
+                </view>
+                <view class="content">
+                    <image wx:if="{{mode==1}}" src="{{imgSrc+'xcx_images/'+'gift-newguy.png'}}" />
+                    <view wx:if="{{mode==2}}"  >
+                        <view class="member-title">
+                            -会员特权-
+                        </view>
+                        <view class="member-content">
+                            <view class="icon-item">
+                                <image src="{{imgSrc+'xcx_images/'+'interest-icons-6.png'}}" />
+                                购物低至6折
+                            </view>
+                            <view class="icon-item">
+                                <image src="{{imgSrc+'xcx_images/'+'interest-icons-coupon.png'}}" />
+                                会员特价商品
+                            </view>
+                            <view class="icon-item">
+                                <image src="{{imgSrc+'xcx_images/'+'interest-icons-member.png'}}" />
+                                会员试用特权
+                            </view>
+                        </view>
+                    </view>
+                      
+                    <view class='bot-btn' catchtap="getSuccess" wx:if="{{mode==1}}">立即领取</view>
+                    <view class='bot-btn' catchtap="getSuccess" wx:if="{{mode==2}}">成为会员</view>
+                </view>
+            </view>
+        </view>
+    </form>
+</view>

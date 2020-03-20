@@ -1,0 +1,66 @@
+/* pages/report/report.wxss */
+.bg{
+    background-color: #1BC4C4;
+    padding-bottom: 55rpx;
+}
+.report-bg{
+    position: relative;
+}
+.report-bg>image{
+    width: 682rpx;
+    height: 1212rpx;
+    display: block;
+    margin: 0 auto;
+}
+.report-line>image{
+    width: 720rpx;
+    height: 46rpx;
+    display: block;
+    margin: 0 auto;
+}
+.title{
+    position: absolute;
+    left: 41%;
+    top: 60rpx;
+    font-size: 36rpx;
+    color: #323333;
+    font-weight: bold;
+}
+.report-bg>.report-status{
+    width: 176rpx;
+    height: 144rpx;
+    position: absolute;
+    right: 37rpx;
+    top: 0;
+}
+.content{
+    padding: 60rpx 56rpx 0 36rpx;
+    position: absolute;
+    top: 160rpx;
+    left: 40rpx;
+    font-size: 26rpx;
+    color: #646666;
+    height: 980rpx;
+    overflow-y: auto;
+}
+.imgs>image{
+    width: 160rpx;
+    height: 160rpx;
+    margin-right: 16rpx;
+    margin-top: 20rpx;
+}
+.time{
+    padding: 60rpx 0;
+    float: right;
+}
+.time>image{
+    width: 21rpx;
+    height: 25rpx;
+    vertical-align: middle;
+    margin-right: 8rpx;
+}
+.time>text{
+    font-size: 22rpx;
+    color: #969999;
+    vertical-align: middle;
+}

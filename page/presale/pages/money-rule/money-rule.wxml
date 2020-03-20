@@ -1,0 +1,38 @@
+<!-- pages/money-rule/money-rule.wxml -->
+<form report-submit="{{true}}" bindsubmit="getFormId">
+    <view class='rule'>
+        <view class='rule-item'>1、预约订金下单后，请在30分钟内付款。若超时，该订单将自动关闭。</view>
+        <view class='rule-item'>2、订金支付完成后请至“我的”中“我的预约”查找所要支付尾款的订单。</view>
+        <view class='rule-item'>
+            3、尾款开始支付时，请在规定时间内支付尾款。若超时，系统将自动关闭订单，且定金不退还，请注意预售结束时间，关注短信、微信推送消息，及时支付尾款
+        </view>
+        <view class='rule-item'>
+            4、订金膨胀商品(含“订金可抵xx元”提示语),即所付订金可当xx元试用.例如，预售价100元订金1元，可抵10元, ;表示支持1元订金可当10元使用，即用户支付1元订金后，尾款只需支付90元。
+        </view>
+        <view class='rule-item'>
+            5、如您对活动有任何疑问，请联系
+            <button class='serve' open-type="contact" form-type="submit" style='color:#1CBDC5'>
+                客服咨询.
+            </button>
+        </view>
+    </view>
+</form>
+<!-- <view class="container">
+    <view class="top">
+        <view class="top-title">
+            新品讨论
+            <text>（698）</text>
+        </view>
+        <view class="top-total">97%2000多人在参与讨论</view>
+    </view>
+    <view class="comment">
+        <goods-comment data="{{item}}"></goods-comment>
+        <view class="comment-bottom">
+            <view class="comment-spec">规格：款式一</view>
+            <view class="comment-reply" bindtap="toCommentDetail" data-item="{{item}}">
+                <image src="/imgs/reply.png"></image>
+                <view>回复 (12)</view>
+            </view>
+        </view>
+    </view>
+</view> -->

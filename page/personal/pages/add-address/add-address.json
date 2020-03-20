@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "city-picker": "/components/city-picker/city-picker"
+  },
+  "navigationBarTitleText": "添加地址"
+}

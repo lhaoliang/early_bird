@@ -1,0 +1,33 @@
+<form report-submit="{{true}}" bindsubmit="getFormId">
+    <view class="container">
+        <view class="orders" wx:if="{{list.length>0}}" wx:for="{{list}}" wx:key="{{item.id}}">
+            <view class="order">
+                <view class="order-top">
+                    <view class="order-time">申请时间：{{item.updatedAt}}</view>
+                    <view class="order-status danger" wx:if="{{item.refundStatus==1}}">退款失败</view>
+                    <view class="order-status primary" wx:if="{{item.refundStatus==2}}">退款中</view>
+                    <view class="order-status primary" wx:if="{{item.refundStatus==3}}">退款成功</view>
+                    <view class="order-status dark" wx:if="{{item.refundStatus==4}}">退款已撤销</view>
+                </view>
+                <view bindtap="toOrderDetail" data-item="{{item}}" wx:for="{{item.orderGoods}}" wx:for-item="itemName" wx:key="{{itemName.id}}">
+                    <goods-info type="{{2}}" goodsInfo="{{itemName}}"></goods-info>
+                </view>
+                <view class="order-bottom">
+                    <view class="order-price">
+                        <text>合计：¥</text>
+                        {{item.payPrice}}
+                    </view>
+                    <button bindtap='cancel' form-type="submit" data-id='{{item.refundId}}' class="order-btn-primary" wx:if="{{item.refundStatus==2}}">
+                        取消退款
+                    </button>
+                </view>
+            </view>
+        </view>
+        <view wx:if="{{list.length==0}}" class="no-order">
+            <image src="{{imgSrc+'xcx_images/'+'no-order.png'}}"></image>
+            <view class="no-order-title">暂无相关订单</view>
+            <view class="no-order-text">去首页看看吧~</view>
+            <button form-type="submit" bindtap="toHome">逛逛首页</button>
+        </view>
+    </view>
+</form>

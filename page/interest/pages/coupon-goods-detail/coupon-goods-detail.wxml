@@ -1,0 +1,4 @@
+<!-- pages/coupon-goods-detail/coupon-goods-detail.wxml -->
+<form report-submit="{{true}}">
+    <exchange-detail cate="{{value}}" goodsInfo="{{info}}"></exchange-detail>
+</form>

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "coupon-newguy":"/components/coupon-newguy/coupon-newguy"
+  },
+  "navigationBarTitleText": "早鸟首发",
+  "enablePullDownRefresh": true
+  
+  
+    
+}

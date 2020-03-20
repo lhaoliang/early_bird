@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "goods-info": "/components/goods-info/goods-info"
+    },
+    "navigationBarTitleText": "我的预约",
+    "enablePullDownRefresh": true
+}

@@ -1,0 +1,10 @@
+/* pages/trial-rule/trial-rule.wxss */
+.rule{
+    padding: 50rpx 32rpx;
+}
+.rule-item{
+    font-size: 26rpx;
+    color: #323333;
+    line-height: 48rpx;
+    margin-bottom: 36rpx;
+}

@@ -1,0 +1,18 @@
+<form report-submit="{{true}}" bindsubmit="getFormId">
+    <view class="order">
+        <goods-info type="{{2}}" goodsInfo="{{orderInfo}}"></goods-info>
+    </view>
+    <view class='main'>
+        <view class='title'>
+            <view class='title-text'>反馈报告 <text class='title-info'>（400字以上，图片大于5张）</text> </view>
+        </view>
+        <textarea bindinput="getCom" maxlength="-1" class='textarea' placeholder-class="place" placeholder='商品满足你的期望吗？写下对商品的看法，优点和缺点都 會有利于我们优化商品，为您提供更好的服务。'>
+        </textarea>
+        <view class='imgshow'>
+            <image src='{{source+item}}' wx:for="{{imgList}}" wx:key="{{index}}" bindtap="deleteImg" data-index="{{index}}"></image>
+        </view>
+        <view class='addImg' bindtap='addImg'>
+            <image class='img' src='/imgs/camera.png'></image> <text bindtap='addImg' style='vertical-align:middle;margin-left:8rpx;'>添加图片</text></view>
+        <button class='addBtn' bindtap='subCom' form-type="submit">上传报告</button>
+    </view>
+</form>

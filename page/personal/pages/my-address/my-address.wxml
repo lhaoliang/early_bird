@@ -1,0 +1,35 @@
+<form report-submit="{{true}}" bindsubmit="getFormId">
+    <view class="container">
+        <view wx:if="{{addressList.length>0}}">
+            <view class="address" wx:for="{{addressList}}" wx:key="{{item.id}}" >
+                <view class="address-info"  bindtap="selectAddress" data-item="{{item}}" >
+                    <view class="address-name">{{item.realName}}</view>
+                    <view class="address-mobile">{{item.phone}}</view>
+                </view>
+                <view  bindtap="selectAddress"  data-item="{{item}}" class="address-text">{{item.province}}{{item.city}}{{item.district}}{{item.detail}}</view>
+                <view class="address-bottom" >
+                    <button data-idx='{{item.id}}'  data-item='{{item}}' data-isDefault='{{item.isDefault}}' class="form-btn address-default" bindtap='setDefault' form-type="submit">
+                        <view class='address-radio {{item.isDefault==1?"active":""}}'>
+                            <view></view>
+                        </view>
+                        <view wx:if="{{item.isDefault==1}}">默认地址</view>
+                        <view wx:if="{{item.isDefault==0}}">设为默认地址</view>
+                    </button>
+                    <view class="address-btns">
+                        <button class="form-btn address-edit" bindtap='editAddress' data-idx='{{item.id}}' form-type="submit">编辑</button>
+                        <button class="form-btn address-delete" data-id="{{item.id}}" bindtap='delAddress' form-type="submit">删除</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="add-btn">
+            <button bindtap="addAddress" class="form-btn btn-primary" form-type="submit">添加新地址</button>
+        </view>
+        <view wx:if="{{addressList.length==0}}" class="no-order">
+            <image src="{{imgSrc+'xcx_images/'+'no-address.png'}}"></image>
+            <view class="no-order-title">您还未添加过地址哦</view>
+            <view class="no-order-text">去添加您的第一个地址吧</view>
+            <button bindtap="addAddress">去添加第一个地址</button>
+        </view>
+    </view>
+</form>

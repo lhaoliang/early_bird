@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "coupon-stac": "/components/coupon-stac/coupon-stac"
+  },
+  "navigationBarTitleText": "优惠券",
+  "enablePullDownRefresh": true,
+  "navigationBarBackgroundColor": "#F2F7F7"
+}

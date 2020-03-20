@@ -1,0 +1,46 @@
+/* components/city-picker/city-picker.wxss */
+
+.picker-view {
+    width: 100%;
+    display: flex;
+    z-index: 12;
+    position: fixed;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    bottom: 0rpx;
+    left: 0rpx;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: translateY(100vh);
+}
+
+.picker-view-body {
+    width: 710rpx;
+    padding: 0 20rpx;
+    background-color: #fff;
+    height: 45vh;
+    padding-top: 20rpx;
+}
+
+.top-btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancel-btn {
+    color: #999;
+    font-size: 28rpx;
+}
+
+.confirm-btn {
+    color: #1989fa;
+    font-size: 28rpx;
+}
+
+.picker-item {
+    line-height: 70rpx;
+    margin-left: 5rpx;
+    margin-right: 5rpx;
+    text-align: center;
+}

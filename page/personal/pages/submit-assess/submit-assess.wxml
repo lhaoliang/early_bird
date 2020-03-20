@@ -1,0 +1,31 @@
+<form report-submit="{{true}}" bindsubmit="getFormId">
+    <view class="order">
+        <goods-info type="{{1}}" goodsInfo="{{goodsInfo}}"></goods-info>
+    </view>
+    <view class='main'>
+        <view class='title'>
+            <view class='title-text'>评价商品</view>
+            <view class="comment-stars">
+                <block wx:for="{{star}}" wx:key="{{index}}">
+                    <image style='margin-right:6rpx;' catchtap='select' id='{{index+1}}' data-in='use_sc2' src="/imgs/star.png"></image>
+                </block>
+
+        <block wx:for="{{defaultStar}}" wx:key="{{index}}">
+          <image style='margin-right:6rpx;' catchtap='select' id='{{index+1}}' data-in='use_sc' src="/imgs/star-gray.png"></image>
+        </block>
+      </view>
+    </view>
+    <view class='asscee-con'>
+        <textarea bindinput="getCom" class='textarea' placeholder-class="place" placeholder='您对我们的商品满意吗?你的评价会让我们为您提供更好的商品和服务哦!'>
+        </textarea>
+        <view class='imgshow'>
+        <image src='{{source+item}}' wx:for="{{imgList}}" wx:key="{{index}}" bindtap="deleteImg" data-index="{{index}}"></image>
+        </view>
+    </view>
+    <view class='addImg' bindtap='addImg'>
+      <image class='img' src='/imgs/camera.png'></image>
+      <text style='vertical-align:middle;margin-left:8rpx;'>添加图片</text>
+    </view>
+    <button class='addBtn' bindtap='subCom' form-type="submit">提交评价</button>
+  </view>
+</form>

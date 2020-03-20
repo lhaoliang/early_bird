@@ -1,0 +1,123 @@
+{
+    "pages": [
+        "page/tabBar/home/index",
+        "page/tabBar/personal/index",
+        "page/tabBar/interest/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "selectedColor": "#56BFC1",
+        "color": "#B3B3B3",
+        "list": [
+            {
+                "pagePath": "page/tabBar/home/index",
+                "text": "首页",
+                "iconPath": "/imgs/home-icon.png",
+                "selectedIconPath": "/imgs/home-icon-select.png"
+            },
+            {
+                "pagePath": "page/tabBar/interest/index",
+                "text": "权益",
+                "iconPath": "/imgs/interest.png",
+                "selectedIconPath": "/imgs/interest-selected.png"
+            },
+            {
+                "pagePath": "page/tabBar/personal/index",
+                "text": "我的",
+                "iconPath": "/imgs/my-icon1.png",
+                "selectedIconPath": "/imgs/my-icon-select.png"
+            }
+        ]
+    },
+    "subPackages": [
+        {
+            "root": "page/common/",
+            "pages": [
+                "pages/authorization/authorization",
+                "pages/pay-success/pay-success"
+            ]
+        },
+        {
+            "root": "page/newsale/",
+            "pages": [
+                "pages/goods-detail/goods-detail",
+                "pages/confirm-order/confirm-order",
+                "pages/goods-comment/goods-comment",
+                "pages/goods-comment-detail/goods-comment-detail",
+                "pages/goods-question/goods-question",
+                "pages/goods-question-detail/goods-question-detail"
+
+            ]
+        },
+        {
+            "root": "page/presale/",
+            "pages": [
+                "pages/presale-detail/presale-detail",
+                "pages/money-rule/money-rule",
+                "pages/pay/pay"
+            ]
+        },
+        {
+            "root": "page/trial/",
+            "pages": [
+                "pages/trial-detail/trial-detail",
+                "pages/sub-detail/sub-detail",
+                "pages/trial-rule/trial-rule",
+                "pages/trialorder-detail/trialorder-detail",
+                "pages/pay-deposit/pay-deposit"
+            ]
+        },
+        {
+            "root": "page/interest/",
+            "pages": [
+                "pages/change-gifts/change-gifts",
+                "pages/change-rule/change-rule",
+                "pages/exchange-success/exchange-success",
+                "pages/coupon-goods-detail/coupon-goods-detail",
+                "pages/record/record",
+                "pages/goodsvip-detail/goodsvip-detail",
+                "pages/exchange-detail/exchange-detail",
+                "pages/ivitation/ivitation",
+                "pages/questionnaire-survey/questionnaire-survey",
+                "pages/confirm-viporder/confirm-viporder",
+                "pages/confirm-exchange/confirm-exchange"
+            ]
+        },
+        {
+            "root": "page/personal/",
+            "pages": [
+                "pages/my-address/my-address",
+                "pages/add-address/add-address",
+                "pages/edit-address/edit-address",
+                "pages/my-orders/my-orders",
+                "pages/order-detail/order-detail",
+                "pages/my-sub/my-sub",
+                "pages/pay-end/pay-end",
+                "pages/sub-detail/sub-detail",
+                "pages/sub-fail/sub-fail",
+                "pages/my-trial/my-trial",
+                "pages/trialorder-detail/trialorder-detail",
+                "pages/feedback/feedback",
+                "pages/logistics/logistics",
+                "pages/report/report",
+                "pages/advice/advice",
+                "pages/coupon/coupon",
+                "pages/coupon-goods-detail/coupon-goods-detail",
+                "pages/submit-assess/submit-assess",
+                "pages/my-refund/my-refund",
+                "pages/refund-detail/refund-detail",
+                "pages/apply-refund/apply-refund",
+                "pages/message/message"
+
+
+
+            ]
+        }
+    ],
+    "sitemapLocation": "sitemap.json"
+}

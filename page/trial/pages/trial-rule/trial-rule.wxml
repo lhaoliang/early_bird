@@ -1,0 +1,32 @@
+<!--pages/trial-rule/trial-rule.wxml-->
+<form report-submit="{{true}}" bindsubmit="getFormId">
+    <view class='rule'>
+        <view class='rule-item'>1、试用说明:试用采取限量抢夺的方式，数量有限，先到先得。</view>
+        <view class='rule-item'>2、押金说明:抢夺到资格的用户须在<text style='color:#EE4D5D'>10分钟内进行支付押金</text>(逾期未支付，认定放弃试用名额，并且不再对资格进行增补，试用名额将继续进行抢夺),试用完成后，押金将返还给用户。</view>
+        <view class='rule-item'>
+            3、报告要求:
+            <view style='padding-left:8rpx;'>
+                <view>①至少400字及5张左右实拍照片;</view>
+                <view>②照片是第一审核要素，务必保证明亮清晰美观;</view>
+                <view>③保证原创，抄袭者取消资格并追究相关责任，押金视情况不予返还;</view>
+                <view>④收到产品后15天内上传试用报告，按时提交优质试用报告将获得产品使用权; </view>
+            </view>
+        </view>
+        <view class='rule-item'>
+           4、注意:如不能按时提交试用报告，或内容不符合要求，经提醒后仍未达标的，供应商有权视情况扣除相应的押金，请知悉;早鸟试用对活动拥有最终解释权。
+        </view>
+    </view>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+

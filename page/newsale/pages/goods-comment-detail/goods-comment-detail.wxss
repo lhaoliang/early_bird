@@ -1,0 +1,88 @@
+/* pages/goods-comment-detail/goods-comment-detail.wxss */
+
+.container {
+    padding: 20rpx 0 142rpx 0;
+}
+
+.comment {
+    padding-bottom: 6rpx;
+    border-bottom: 10rpx solid #f0f5f5;
+}
+
+.reply {
+    padding: 36rpx 0;
+    border-bottom: 1px solid #f0f5f5;
+}
+
+.reply:last-of-type {
+    border: none;
+}
+
+.reply-top {
+    display: flex;
+    align-items: center;
+    padding: 0 36rpx;
+}
+
+.reply-top>image {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+    margin-right: 16rpx;
+}
+.total{
+    font-size: 24rpx;
+    color: #969999;
+    padding: 30rpx 0 0 30rpx;
+}
+.reply-name {
+    color: #323333;
+    font-size: 22rpx;
+    flex-grow: 1;
+}
+
+.reply-date {
+    font-size: 22rpx;
+    color: #969999;
+}
+
+.reply-text {
+    color: #323333;
+    font-size: 24rpx;
+    padding: 20rpx 36rpx 0 36rpx;
+}
+
+.bottom {
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    box-shadow: 0 1px 30rpx 0 rgba(0, 0, 0, 0.15);
+    padding: 16rpx 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.reply-input {
+    height: 80rpx;
+    line-height: 800rpx;
+    text-align: center;
+    border-radius: 5rpx;
+    background-color: #edf2f2;
+    width: 84%;
+    font-size: 28rpx;
+    color: #323333;
+    box-sizing: border-box;
+}
+.submit{
+    width: 15%;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    border-radius: 5rpx;
+    font-size: 24rpx;
+    background-color: #1CBDC5;
+    color: #fff;
+}

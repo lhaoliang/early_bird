@@ -1,0 +1,11 @@
+<!-- pages/money-rule/money-rule.wxml -->
+<form report-submit="{{true}}" bindsubmit="getFormId">
+    <view class="container">
+        <view class='rule-card'>
+            <view class="rule-item">1、使用成长值可兑换对应产品，兑换成功时，将从账户上扣除对应的成长值</view>
+            <view class="rule-item">2、虚拟商品兑换成功即可使用，无需平台发货，请确定兑换后再进行兑换</view>
+            <view class="rule-item">3、兑换的实物商品全场包邮，兑换成功的实物商品 将在2个工作日内发货</view>
+            <view class="rule-item">4、免费兑换的商品属用户活动，均不支持退换货本次活动的最终解释权归早鸟首发所有</view>
+        </view>
+    </view>
+</form>

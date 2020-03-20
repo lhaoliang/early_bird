@@ -1,0 +1,133 @@
+<form class="container" report-submit="true" bindsubmit="getFormId">
+    <view class="container" style="position:{{showSpecModal||showShareModal?'fixed':''}}">
+        <!-- <view class="pay-list">
+            <view class="pay-item" wx:for="{{payList}}" wx:key="{{index}}" style="opacity:{{(index-currentPayListIndex)*0.2+0.3}}" hidden="{{index-2>currentPayListIndex||index<currentPayListIndex}}">
+                <image src="{{item.avatar}}"></image>
+                <view>{{item.nickname}}已支付</view>
+            </view>
+        </view> -->
+        <swiper class="top-swiper">
+            <swiper-item wx:if="{{goodsDetail.goods.video}}">
+                <video src="{{imgSrc+goodsDetail.goods.video}}"></video>
+            </swiper-item>
+            <swiper-item wx:for="{{goodsDetail.goods.sliderImage}}" wx:key="{{item.id}}">
+                <image src="{{imgSrc+item}}"></image>
+            </swiper-item>
+        </swiper>
+        <view class="top-info">
+            <view class="top">
+                <view class="limit-num">限量抢购{{detail.numPerUser}}件</view>
+                <view class="limit-time">距离结束还剩{{detail.endTimeFormat}}</view>
+            </view>
+            <view class="bottom">
+                <view class="sale-num">
+                    <view>共发售：{{detail.stock+detail.ficti}}{{goodsDetail.unitName}}件</view>
+                    <view>仅剩：{{detail.restStock}}{{goodsDetail.unitName}}件</view>
+                </view>
+                <view class="left-num">已售金额：{{detail.sumMoney}}元</view>
+            </view>
+        </view>
+        <view class="goods-title">
+            <view class="top">
+                <view class="goods-name one-line">{{detail.title}}</view>
+                <button class="form-btn goods-share" bindtap="clickShare" form-type="submit">
+                    分享
+                </button>
+            </view>
+            <view class="goods-price"><text>￥</text>{{detail.price}}</view>
+        </view>
+        <view class="goods-items">
+            <view>
+                <view class="item-key">服务</view>
+                <view class="item-value">
+                    <view style="margin-left: 2rpx;">
+                        <view class="service" wx:for="{{detail.serviceNote}}" wx:key="{{item.id}}">
+                            <view class="circle">
+                                <image class="gou-img" src="/imgs/gou.png" />
+                            </view>
+                            <text>{{item.content}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <button class="form-btn" bindtap="openSpecModal" form-type="submit">
+                <view class="item-key">规格</view>
+                <view class="item-value" style='font-weight:{{specNames?700:400}}; font-size: 28rpx;'>{{specNames||'请选择规格'}}</view>
+                <image src="/imgs/right.svg" style="width:30rpx;height:30rpx;opacity:.7;margin-right:-8rpx"></image>
+            </button>
+            <view>
+                <view class="item-key">运费</view>
+                <view style='font-weight:bold' class="item-value" wx:if="{{detail.deliverFee}}">{{detail.deliverFee}}元</view>
+                <view class="item-value" style='font-weight:bold' wx:else>免运费</view>
+            </view>
+        </view>
+        <view class="comment">
+            <view class="comment-title">
+                <text>评价（{{goodsComment.total?goodsComment.total:0}}）</text>
+                <button wx:if="{{goodsComment.total}}" class="form-btn" bindtap="toComment" form-type="submit">
+                    {{goodsComment.okRate}}的人觉得很赞
+                    <image src="/imgs/right.svg"></image>
+                </button>
+            </view>
+            <goods-comment wx:for="{{goodsComment.rows}}" wx:key="{{item.id}}" data="{{item}}" bindtap="toCommentDetail" data-item="{{item}}"></goods-comment>
+        </view>
+        <view class="comment">
+            <view class="comment-title">
+                <text>提问（{{goodsQuestion.total?goodsQuestion.total:0}}）</text>
+                <button  class="form-btn" bindtap="toQuestion" form-type="submit">
+                    查看更多
+                    <image src="/imgs/right.svg"></image>
+                </button>
+            </view>
+            <view class="question" wx:for="{{goodsQuestion.rows}}" wx:key="{{item.id}}" bindtap='toQuestionDetail' data-item='{{item}}'>
+                <view class="question-label">提问</view>
+                <view class="question-text">{{item.question}}</view>
+                <view class="question-answer">{{item.answerNum}}个回答</view>
+            </view>
+        </view>
+        <view class="tabs">
+            <view class="tab" bindtap="chooseTab" data-tab="1">
+                <view>商品详情</view>
+                <view class="{{tab==1?'active':''}}"></view>
+            </view>
+            <view class="tab" bindtap="chooseTab" data-tab="2">
+                <view>参数</view>
+                <view class="{{tab==2?'active':''}}"></view>
+            </view>
+        </view>
+        <!-- <view wx:if="{{tab==1}}" class="goods-detail">{{goodsDetail.goods.goodsInfo}}</view> -->
+        <rich-text wx:if="{{tab==1}}" class="goods-detail " nodes="{{goodsDetail.goods.description}}"></rich-text>
+        <view wx:if="{{tab==2}}" class="options">
+            <view class="option" wx:for="{{goodsDetail.goods.goodsAttr}}">
+                <view>{{item.name}}</view>
+                <view class="option-right">{{item.value}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom-area">
+        <button class="form-btn support-btn" open-type="contact" form-type="submit">
+            <image src="/imgs/support-active.png"></image>
+            <view>客服</view>
+        </button>
+        <button class="btn-primary" bindtap="openSpecModal" form-type="submit">立即购买</button>
+    </view>
+    <!-- 规格弹窗 -->
+    <spec-modal specGroupsProp="{{goodsDetail.specGroups}}" specsProp="{{goodsDetail.specs}}" numPerUser="{{detail.numPerUser}}" defaultImage="{{goodsDetail.goods.image}}" defaultPrice="{{detail.price}}" defaultStock="{{detail.stock}}" bindclose="closeSpecModal" bindbuy="clickBuy" style="{{showSpecModal?'':'display:none'}}" bindchoose="chooseSpec" catchtouchmove="myCatchTouch"></spec-modal>
+    <!-- 选择分享类型弹窗 -->
+    <view class="choose-share" wx:if="{{showChooseShareModal}}" bindtap="closeChooseShare">
+        <view class="choose-share-body" catchtap="stop">
+            <button class="choose-share-btn" bindtap="createShareImage" form-type="submit">
+                <image src="/imgs/down.png"></image>
+                <view>生成海报</view>
+            </button>
+            <button class="choose-share-btn" open-type="share" form-type="submit">
+                <image src="/imgs/wechat.png"></image>
+                <view>发给朋友</view>
+            </button>
+        </view>
+    </view>
+</form>
+<!-- 分享弹窗 -->
+<share-modal bindclose="closeShareModal" wx:if="{{showShareModal}}" code="{{code}}" image="{{imgSrc+goodsDetail.goods.sliderImage[0] || imgSrc+goodsDetail.goods.image}}" title="{{detail.title}}" price="{{detail.price}}"></share-modal>
+<!-- 成为会员弹窗 -->
+<!-- <coupon-newguy mode="{{2}}" wx:if="{{beMember}}" bindclose="showBeMember"></coupon-newguy> -->

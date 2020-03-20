@@ -1,0 +1,7 @@
+<view class="container">
+  <form report-submit="{{true}}" bindsubmit="getFormId">
+    <image src="{{imgSrc+'xcx_images/'+'logo.png'}}" class="logo"></image>
+    <view class="logo-text">欢迎进入早鸟首发</view>
+    <button class="btn" open-type="getUserInfo" bindgetuserinfo="clickLogin" form-type="submit">授权登陆</button>
+  </form>
+</view>

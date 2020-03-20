@@ -1,0 +1,18 @@
+<!--pages/record/record.wxml-->
+<view class='container'>
+    <view class="order" wx:for="{{recordList}}">
+        <view class="order-top">
+            <view class="order-time">兑换时间：{{item.createdAt}}</view>
+            <view wx:if="{{item.prizeOrder[0].status==1}}" class="order-status primary">待发货</view>
+            <view wx:if="{{item.prizeOrder[0].status==2}}" class="order-status primary">已发货</view>
+            <view wx:if="{{item.prizeOrder[0].status==3}}" class="order-status primary">已完成</view>
+        </view>
+        <view bindtap='toDetail' data-type='{{item.prize[0].prizeType}}' data-id='{{item.orderId}}'>
+            <goods-info type="{{2}}" growType="true" goodsInfo="{{item.prize[0]}}"></goods-info>
+        </view>
+        <view class="order-bottom">
+            <view class="order-price">成长值：<text>{{item.prize[0].growthValue}}</text></view>
+            <view class='record-success'>兑换成功</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+  },
+"navigationBarBackgroundColor": "#1BC4C4",
+"navigationBarTitleText":"问卷调查",
+"navigationBarTextStyle":"white"
+
+}

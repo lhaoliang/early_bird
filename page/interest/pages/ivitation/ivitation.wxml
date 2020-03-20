@@ -1,0 +1,14 @@
+
+<canvas canvas-id="myCanvas" style='width:{{canvasWidth}}px; height:{{canvasHeight}}px; margin: 30rpx auto'/>
+<view class="choose-share-body" catchtap="stop">
+    <button class="choose-share-btn" bindtap='saveImg' form-type="submit">
+        <image src="/imgs/down.png"></image>
+        <view>保存图片</view>
+    </button>
+    <button class="choose-share-btn" open-type="share" form-type="submit">
+        <image src="/imgs/wechat.png"></image>
+        <view>发给朋友</view>
+    </button>
+</view>
+<!-- <view bindtap='saveImg' style='width:150rpx;height:50rpx;background:#000;color:#fff;text-align:center;line-height:50rpx;border-radius:10rpx;font-size:24rpx;margin:0 auto'>保存</view> -->
+<image style='display:none' src='{{img2}}'></image>

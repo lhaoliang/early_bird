@@ -1,0 +1,112 @@
+<!--pages/trial-detail/trial-detail.wxml-->
+<form class="container" report-submit="true" bindsubmit="getFormId">
+    <view class="container">
+        <swiper class="top-swiper">
+            <swiper-item wx:if="{{goodsDetail.goods.video}}">
+                <video src="{{imgSrc+goodsDetail.goods.video}}"></video>
+            </swiper-item>
+            <swiper-item wx:for="{{goodsDetail.goods.sliderImage}}" wx:key="{{item.id}}">
+                <image src="{{imgSrc+item}}"></image>
+            </swiper-item>
+        </swiper>
+        <view class="top-info">
+            <view class="top">
+                <view class="limit-money">剩余名额：{{activityDetail.residualQuota}}/{{activityDetail.totalQuota}}</view>
+                <view class="left-time bor">限量抢购{{activityDetail.numPerUser}}件</view>
+                <!-- <view class="limit-warn">可获{{activityDetail.integral}}积分</view> -->
+            </view>
+            <view class="bottom">
+                <view class="coupon">
+                    <view class='coupon-left'><text class='new'>¥{{activityDetail.price}}</text><text class='old'>¥{{activityDetail.originalPrice}}</text></view>
+                </view>
+                <!-- <view class="left-time">限量抢购{{activityDetail.numPerUser}}件</view> -->
+            </view>
+        </view>
+        <view class="goods-title">
+            <view class="top">
+                <view class="goods-name">{{activityDetail.title}}</view>
+                <button class="form-btn goods-share" bindtap="clickShare" form-type="submit">
+                    分享
+                </button>
+            </view>
+        </view>
+        <view class='way'>
+            <view class='way-title'>
+                <view class='way-text'>试用流程</view>
+                <view class='way-rule' bindtap='toRule'>详细规则 <image src="/imgs/right.svg" style="position:relative;bottom:3rpx;width:30rpx;height:30rpx;opacity:.7;"></image> </view>
+            </view>
+            <view class="flow" style='padding-left:26rpx;overflow:hidden;height:80rpx;'>
+                <!-- <image src='/imgs/flow.png'></image>
+                <view class='flow-text'><text>抢夺名额</text><text>购买下单</text><text>商家发货</text><text>试用体验</text><text>提交报告</text><text>返还金额</text></view> -->
+                <view class='num-sort'>1</view><view class='num-sort'>2</view><view class='num-sort'>3</view><view class='num-sort'>4</view><view class='num-sort'>5</view><view class='num-sort'>6</view>
+            </view>
+        </view>
+        <view class='quota way'>
+            <view class='quota-title'>已获名额</view>
+            <view class='quota-user'><image wx:for="{{avatars}}" wx:key="{{item.id}}" src='{{item.avatar}}'></image></view>
+            <view class='quota-num'>已有{{activityDetail.totalQuota-activityDetail.residualQuota}}人抢到 还剩 <text style='color:#EE4D5D'>{{activityDetail.residualQuota}}</text>个名额</view>
+        </view>
+        <button class="form-btn spec-btn" bindtap='openSpecModal' form-type="submit">
+            <view class="item-key">规格</view>
+            <view class="item-value" style='font-weight:{{specNames?600:300}};'>{{specNames||'请选择规格'}}</view>
+            <image src="/imgs/right.svg" style="width:30rpx;height:30rpx;opacity:.7;margin-right:-8rpx"></image>
+        </button>
+        
+        <view class="tabs">
+            <view class="tab" bindtap="chooseTab" data-tab="1">
+                <view>商品详情</view>
+                <view class="{{tab==1?'active':''}}"></view>
+            </view>
+            <view class="tab" bindtap="chooseTab" data-tab="2">
+                <view>参数</view>
+                <view class="{{tab==2?'active':''}}"></view>
+            </view>
+        </view>
+        <rich-text wx:if="{{tab==1}}" class="goods-detail" nodes="{{goodsDetail.goods.description}}"></rich-text>
+        <view wx:if="{{tab==2}}" class="options">
+            <view class="option" wx:for="{{goodsDetail.goods.goodsAttr}}">
+                <view>{{item.name}}</view>
+                <view class="option-right">{{item.value}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom-area">
+        <button class="form-btn support-btn" open-type="contact" form-type="submit">
+            <image src="/imgs/support-active.png"></image>
+            <view>客服</view>
+        </button>
+        <button wx:if="{{start}}" bindtap="openSpecModal" class="btn-primary" form-type="submit">
+           {{startTime}}准时开抢
+        </button>
+        <view wx:if="{{!start}}">
+            <button wx:if="{{!activityDetail.isTrial&&activityDetail.residualQuota>0}}" class="btn-primary" bindtap="openSpecModal" form-type="submit">
+                申请试用
+            </button>
+            <button wx:if="{{activityDetail.isTrial&&activityDetail.residualQuota>0}}" disabled='{{activityDetail.isTrial}}' class="btn-primary" bindtap="openSpecModal" form-type="submit">
+                已申请
+            </button>
+            <button wx:if="{{activityDetail.residualQuota==0}}" class="btn-primary end" form-type="submit">
+                名额已抢光
+            </button>
+        </view>
+    </view>
+        <!-- 规格弹窗 -->
+    <spec-modal specGroupsProp="{{goodsDetail.specGroups}}" specsProp="{{goodsDetail.specs}}" numPerUser="{{activityDetail.numPerUser}}" defaultImage="{{activityDetail.coverImg}}" defaultPrice="{{activityDetail.price}}" defaultStock="{{activityDetail.stock}}" bindclose="closeSpecModal" bindbuy="clickBuy" style="{{showSpecModal?'':'display:none'}}" bindchoose="chooseSpec"></spec-modal>
+    <!-- 选择分享类型弹窗 -->
+    <view class="choose-share" wx:if="{{showChooseShareModal}}" bindtap="closeChooseShare">
+        <view class="choose-share-body" catchtap="stop">
+            <button class="choose-share-btn" bindtap="createShareImage" form-type="submit">
+                <image src="/imgs/down.png"></image>
+                <view>生成海报</view>
+            </button>
+            <button class="choose-share-btn" open-type="share" form-type="submit">
+                <image src="/imgs/wechat.png"></image>
+                <view>发给朋友</view>
+            </button>
+        </view>
+    </view>
+</form>
+<!-- 分享弹窗 -->
+<share-modal bindclose="closeShareModal" wx:if="{{showShareModal}}" code="{{code}}" image="{{imgSrc+goodsDetail.goods.sliderImage[0] || imgSrc+goodsDetail.goods.image}}" title="{{activityDetail.title}}" price="{{activityDetail.price}}"></share-modal>
+<!-- 成为会员弹窗 -->
+<coupon-newguy mode="{{2}}" wx:if="{{!isMember}}" bindclose="showBeMember"></coupon-newguy>

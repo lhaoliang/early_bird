@@ -1,0 +1,110 @@
+<view class="container">
+    <form report-submit="{{true}}" bindsubmit="getFormId">
+        <view class="swiper-container">
+            <swiper autoplay="4000" style="width:100%;height:508rpx" bindchange="bannerChange">
+                <swiper-item wx:for="{{imgs}}" wx:key="{{item.id}}" data-src="{{item.src}}" bindtap="turn">
+                    <image lazy-load='true' src="{{imgSrc+item.image}}" style="width:100%;height:100%"></image>
+                    <view class="ban-change">
+                        <view class='ban-title'>{{item.title}}</view>
+                        <view class='ban-desc'>{{item.description}}</view>
+                    </view>
+                </swiper-item>
+            </swiper>
+            <view class="swiper-dots">
+                <view class="swiper-dot{{index == currentBanner ? ' active' : ''}}" wx:for="{{imgs}}" wx:key="{{item.id}}"></view>
+            </view>
+            <image src="/imgs/right-white.png" class="swiper-right"></image>
+        </view>
+        <image src="{{imgSrc+plateImage}}"mode="widthFix" class="home-top-bg"></image>
+        <view class="line"></view>
+        <view class="card">
+            <view class="title">{{titles[0].aliasA}}</view>
+            <view class="text">{{titles[0].aliasB}}</view>
+            <view class="goods" bindtap="clickGoods" data-item="{{item}}" wx:for="{{saleGoods}}" wx:key="{{item.id}}">
+                <image lazy-load='true' src="{{imgSrc+item.coverImg}}" class="goods-image"></image>
+                <view class="goods-title one-line">{{item.title}}</view>
+                <view class="goods-info">{{item.subTitle}}</view>
+                <view class="goods-bottom">
+                    <view class="goods-price">￥{{item.price}}</view>
+                    <view class="right">
+                        <view>离结束还剩{{item.endTimeFormat}}</view>
+                        <button form-type="submit">立即抢购</button>
+                    </view>
+                </view>
+                <view class="line" style="margin-top:22rpx"></view>
+            </view>
+        </view>
+        <view class="card">
+            <view class="title">{{titles[1].aliasA}}</view>
+            <view class="text">{{titles[1].aliasB}}</view>
+            <view class="goods" bindtap='toDetail' data-item="{{item}}" wx:for="{{appointList}}" wx:key="{{item.id}}">
+                <view class="goods-time">
+                    <view class="left">
+                        <image src="/imgs/home-clock.png"></image>
+                        <view>
+                            距发售剩余<span wx:if="{{item.endTimeFormat.length>6}}">{{item.endTimeFormat[0]}}天</span>
+                        </view>
+                    </view>
+                    <view class="right" wx:if="{{item.endTimeFormat.length>6}}">
+                        <view class="number">{{item.endTimeFormat[1]}}</view>
+                        <view class="number">{{item.endTimeFormat[2]}}</view>
+                        <view>:</view>
+                        <view class="number">{{item.endTimeFormat[3]}}</view>
+                        <view class="number">{{item.endTimeFormat[4]}}</view>
+                        <view>:</view>
+                        <view class="number">{{item.endTimeFormat[5]}}</view>
+                        <view class="number">{{item.endTimeFormat[6]}}</view>
+                    </view>
+                    <view class="right" wx:if="{{item.endTimeFormat.length<=6}}">
+                        <view class="number">{{item.endTimeFormat[0]}}</view>
+                        <view class="number">{{item.endTimeFormat[1]}}</view>
+                        <view>:</view>
+                        <view class="number">{{item.endTimeFormat[2]}}</view>
+                        <view class="number">{{item.endTimeFormat[3]}}</view>
+                        <view>:</view>
+                        <view class="number">{{item.endTimeFormat[4]}}</view>
+                        <view class="number">{{item.endTimeFormat[5]}}</view>
+                    </view>
+                </view>
+                <image lazy-load='true' src="{{imgSrc+item.coverImg}}" class="goods-image"></image>
+                <view class="goods-title">{{item.title}}</view>
+                <view class="goods-info">{{item.subTitle}}</view>
+                <view class="goods-bottom">
+                    <view class="goods-price">￥{{item.price}}</view>
+                    <view class="center" style="color:#646666;font-size:24rpx">
+                        已预约{{item.count+item.virtualAppointment}}人
+                    </view>
+                    <view class="right">
+                        <button form-type="submit">立即预约</button>
+                    </view>
+                </view>
+                <view class="line" style="margin-top:22rpx"></view>
+            </view>
+        </view>
+        <view class="card">
+            <view class="title">{{titles[2].aliasA}}</view>
+            <view class="text">{{titles[2].aliasB}}</view>
+            <view class="goods" wx:for="{{trialList}}" wx:key="{{item.id}}" bindtap='toTrialDetail' data-item="{{item}}">
+                <image lazy-load='true' src="{{imgSrc+item.coverImg}}" class="goods-image"></image>
+                <view class="goods-title">{{item.title}}</view>
+                <view class="goods-info">{{item.subTitle}}</view>
+                <view class="goods-bottom">
+                    <view class="goods-price delete-line">￥{{item.originalPrice}}</view>
+                    <view class="center" style="color:#646666;font-size:26rpx">
+                        剩余名额:
+                        <text style="margin-left:4rpx">{{item.residualQuota>0?item.residualQuota:0}}</text>
+                        个
+                    </view>
+                    <view class="right">
+                        <button form-type="submit" wx:if="{{item.residualQuota<=0&&!item.start}}" style="background-color:#9DC2C4">名额已抢光</button>
+                        <button form-type="submit" wx:if="{{item.residualQuota>0&&!item.start}}" style="background-color:#1cbdc5">申请试用</button>
+                        <button form-type="submit" wx:if="{{item.start}}" style="background-color:#1cbdc5;">等待开抢</button>
+                    </view>
+                </view>
+                <view class="line" style="margin-top:22rpx"></view>
+            </view>
+        </view>
+        <!-- 新人领券 -->
+        <coupon-newguy mode="{{1}}" wx:if="{{getCoupon}}" bindclose="showCoupon"></coupon-newguy>
+    </form>
+</view>
